@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Webbshopen</title>
 </head>
+
 <body>
     <div id="app">
 
-        <button id="showStart" v-on:click="showStart()">START</button>
-        <button id="showProduct" v-on:click="showProduct()">PRODUCT</button>
-        <button id="showCart" v-on:click="showCart()">CART</button>
+        <header id="header-content">
+            <website-title id="website-title"></website-title>
+            <a id="showStart" v-on:click="showStart()">START</a>
+            <a id="showProduct" v-on:click="showProduct()">PRODUCTS</a>
+            <div id="header-icons">
+                <header-icon-profile ></header-icon-profile>
+                <header-icon-favorites></header-icon-favorites>
+                <a v-on:click="showCart()">
+                    <header-icon-cart></header-icon-cart>
+                </a>
+            </div>
+
+
+
+        </header>
+
+
 
         <div class="start-page" v-if="typeOfPage === 'start' || typeOfPage === ''">
+
             <h1>START PAGE</h1>
+            <header-image id="header-image"></header-image>
         </div>
         <div class="product-page" v-if="typeOfPage === 'product'">
             <h1>PRODUCT PAGE</h1>
@@ -33,4 +52,5 @@
 
     <script src="main.js"></script>
 </body>
+
 </html>
