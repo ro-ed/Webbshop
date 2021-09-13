@@ -7,7 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Webbshopen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Glory:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <title>Scable</title>
 </head>
 
 <body>
@@ -18,15 +22,13 @@
             <a id="showStart" v-on:click="showStart()">START</a>
             <a id="showProduct" v-on:click="showProduct()">PRODUCTS</a>
             <div id="header-icons">
-                <header-icon-profile ></header-icon-profile>
+                <header-icon-search></header-icon-search>
+                <header-icon-profile></header-icon-profile>
                 <header-icon-favorites></header-icon-favorites>
                 <a v-on:click="showCart()">
                     <header-icon-cart></header-icon-cart>
                 </a>
             </div>
-
-
-
         </header>
 
 
