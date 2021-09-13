@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <title>Webbshopen</title>
 </head>
 <body>
-    
+    <div id="app">
+
+        <button id="showStart" v-on:click="showStart()">START</button>
+        <button id="showProduct" v-on:click="showProduct()">PRODUCT</button>
+        <button id="showCart" v-on:click="showCart()">CART</button>
+
+        <div class="start-page" v-if="typeOfPage === 'start' || typeOfPage === ''">
+            <h1>START PAGE</h1>
+        </div>
+        <div class="product-page" v-if="typeOfPage === 'product'">
+            <h1>PRODUCT PAGE</h1>
+        </div>
+        <div class="cart-page" v-if="typeOfPage === 'cart'">
+            <h1>CART PAGE</h1>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="main.js"></script>
 </body>
 </html>
