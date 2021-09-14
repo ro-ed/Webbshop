@@ -16,11 +16,13 @@
     display: flex;
     justify-content: space-between;
     margin: 1%;
+    height: 2.5em;
 }
 
 #header-icons
 {
     display: flex;
+    cursor: pointer;
 }
 
 #header-icons svg
@@ -28,20 +30,20 @@
     margin: 10px;
 }
 
-#header-image
+#start-image
 {
     display: flex;
     justify-content: center;
     
 }
 
-#header-image img
+#start-image img
 {
     min-width: 100%;
     
 }
 
-#header-image ul
+#start-image ul
 {
     position: absolute;
     color: #101010;
@@ -49,12 +51,10 @@
     background: wheat;
     border-radius: 25px;
     width: 13em;
-    margin-top: 10%;
-    
-    
+    margin-top: 10%;    
 }
 
-#header-image ul h1
+#start-image ul h1
 {
     margin-left: 0.2em;
 }

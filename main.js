@@ -6,12 +6,6 @@ Vue.component('website-title',
 }
 )
 
-
-Vue.component('header-image', 
-{
-    template: '<div><ul><h1 style="color: #4F7942;">SUSTAINABLE.</h1><h1 style="color: #D27D2D">COMFORTABLE.</h1><h1 style="color: #E1AD01">AFFORDABLE.</h1><h1>We are SCABLE.</h1></ul><img src="/images/background-unsplash.jpg" alt="Image not working"></div>'
-})
-
 Vue.component('header-icon-search', 
 {
     template: '<div><svg id="showSearch" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">'
@@ -43,9 +37,12 @@ Vue.component('header-icon-cart',
     
 })
 
+Vue.component('start-image', 
+{
+    template: '<div><ul><h1 style="color: #4F7942;">SUSTAINABLE.</h1><h1 style="color: #D27D2D">COMFORTABLE.</h1><h1 style="color: #E1AD01">AFFORDABLE.</h1><h1>We are SCABLE.</h1></ul><img src="/images/background-unsplash.jpg" alt="Image not working"></div>'
+})
 
-
-
+Vue.component('')
 
 
 
