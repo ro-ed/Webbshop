@@ -56,7 +56,7 @@
 {
     cursor: pointer;
     font-size: 1.5em;
-    margin-left: 15%;
+    margin-left: .5em;
     margin-top: 5%;
 }
 
@@ -216,14 +216,38 @@
 /*#endregion*/
 
 
-.product-list-trousers
+.checkbox-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.checkbox-container ul
 {
     display: flex;
     list-style: none;
+    flex-direction: row;
+    
 }
 
-.trouser-item img
+.checkbox-container ul li
+{
+    font-size: 1.3em;
+    margin-left: 2em;
+}
+
+.product-list
+{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.product-item img
 {
     width: 30vw;
-    outline: 2px dashed red;
+    outline: .25em solid lightgray;
 }

@@ -84,7 +84,9 @@ var app = new Vue(
     el: '#app',
     data: {
         typeOfPage: "",
-        trousersChecked: ""
+        trousersChecked: "",
+        sweatersChecked: "",
+        shoesChecked: ""
     },
     methods: {
         showStart: function() {
