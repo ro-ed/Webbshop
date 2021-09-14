@@ -37,12 +37,37 @@
 
 
         <div class="start-page" v-if="typeOfPage === 'start' || typeOfPage === ''">
-
-            <start-image id="start-image"></start-image> 
+            
+                <start-image id="start-image"></start-image> 
+            
             
         </div>
         <div class="product-page" v-if="typeOfPage === 'product'">
-            
+            <div class="product-container">
+                <input type="checkbox" id="trousers" v-model="trousersChecked">
+                <label for="trousers">Trousers</label>
+                <ul class="product-list-trousers" v-if="trousersChecked == true">
+                    <li class="trouser-item">
+
+                        <img src="/images/black-costume-trousers.jpg">
+                    </li>
+                    <li class="trouser-item">
+
+                        <img src="/images/gray-costume-trousers.jpg">
+                    </li>
+                    <li class="trouser-item">
+
+                        <img src="/images/stripes.jpg">
+                    </li>
+
+                </ul>
+                <ul class="product-list-sweaters">
+
+                </ul>
+                <ul class="product-list-shoes">
+                    
+                </ul>
+            </div>
         </div>
         <div class="cart-page" v-if="typeOfPage === 'cart'">
             

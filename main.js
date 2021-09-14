@@ -39,10 +39,24 @@ Vue.component('header-icon-cart',
 
 Vue.component('start-image', 
 {
-    template: '<div><ul><h1 style="color: #4F7942;">SUSTAINABLE.</h1><h1 style="color: #D27D2D">COMFORTABLE.</h1><h1 style="color: #E1AD01">AFFORDABLE.</h1><h1>We are SCABLE.</h1></ul><img src="/images/background-unsplash.jpg" alt="Image not working"></div>'
+    template: '<div><div class="usp"><ul>'
+    + '<li><h1 style="color: #81C784;">SUSTAINABLE.</h1></li>'
+    + '<li><h1 style="color: #D27D2D">COMFORTABLE.</h1></li>'
+    + '<li><h1 style="color: #E1AD01">AFFORDABLE.</h1></li>'
+    + '<li><h1 style="color: white">We are SCABLE.</h1></li></ul></div>'
+    + '<div class="imgBox">'
+    + '<ul>'
+    + '<li><h2>Nike Shoes</h2></li>'
+    + '<li><h2>Nike Shoes</h2></li>'
+    + '<li><h2>Nike Shoes</h2></li>'
+    + '</ul></div>'
+    + '<img src="/images/background-unsplash.jpg" alt="Image not working"></div>'
 })
 
-Vue.component('')
+Vue.component('products-grid', 
+{
+    template: ''
+})
 
 
 
@@ -69,7 +83,8 @@ var app = new Vue(
 
     el: '#app',
     data: {
-        typeOfPage: ""
+        typeOfPage: "",
+        trousersChecked: ""
     },
     methods: {
         showStart: function() {
@@ -81,6 +96,7 @@ var app = new Vue(
         showCart: function() {
             this.typeOfPage = "cart"
         }
+        
     }
         
 })
