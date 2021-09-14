@@ -41,15 +41,53 @@
     
 }
 
-#header-image h1
+#header-image ul
 {
     position: absolute;
     color: #101010;
-    font-size: 5em;
+    font-size: 3em;
     background: wheat;
+    border-radius: 25px;
+    width: 13em;
     margin-top: 10%;
     
+    
 }
+
+#header-image ul h1
+{
+    margin-left: 0.2em;
+}
+
+#header-tabs
+{
+    display: flex;
+    justify-content: center;
+}
+
+#header-tabs a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #4F7942;
+    display: block;
+    margin: auto;
+    transition: 0.2s;
+    
+}
+#header-tabs a:hover::after {
+    width: 100%;
+}
+
+
+#header-tabs a
+{
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-left: 15%;
+    margin-top: 5%;
+}
+
 
 #showSearch
 {

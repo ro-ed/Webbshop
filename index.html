@@ -19,8 +19,11 @@
 
         <header id="header-content">
             <website-title id="website-title"></website-title>
-            <a id="showStart" v-on:click="showStart()">START</a>
-            <a id="showProduct" v-on:click="showProduct()">PRODUCTS</a>
+            <ul id="header-tabs">
+                <a id="showStart" v-on:click="showStart()">START</a>
+                <a id="showProduct" v-on:click="showProduct()">PRODUCTS</a>
+            </ul>
+
             <div id="header-icons">
                 <header-icon-search></header-icon-search>
                 <header-icon-profile></header-icon-profile>
