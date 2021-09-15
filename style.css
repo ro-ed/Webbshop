@@ -505,6 +505,11 @@ section
     cursor: pointer;
 }
 
+.start-cards-container .card .content .color span:hover
+{
+    border-color: #111;
+}
+
 .start-cards-container .card .content .color span:nth-child(2)
 {
     background: #9bdc28;
@@ -539,6 +544,14 @@ section
     background: #111;
     color: #fff;
 }
+
+.buttons 
+{
+    display: flex;
+   
+}
+
+
 
 /*#endregion*/
 
