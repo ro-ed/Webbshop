@@ -37,25 +37,23 @@ Vue.component('header-icon-cart',
     
 })
 
-Vue.component('start-image', 
+Vue.component('start-usp', 
 {
     template: '<div><div class="usp"><ul>'
     + '<li><h1 style="color: #81C784;">SUSTAINABLE.</h1></li>'
     + '<li><h1 style="color: #D27D2D">COMFORTABLE.</h1></li>'
     + '<li><h1 style="color: #E1AD01">AFFORDABLE.</h1></li>'
     + '<li><h1 style="color: white">We are SCABLE.</h1></li></ul></div>'
-    + '<div class="imgBox">'
-    + '<ul>'
-    + '<li><h2>Nike Shoes</h2></li>'
-    + '<li><h2>Nike Shoes</h2></li>'
-    + '<li><h2>Nike Shoes</h2></li>'
-    + '</ul></div>'
-    + '<img src="/images/background-unsplash.jpg" alt="Image not working"></div>'
+    + '<img src="/images/background-unsplash.jpg"></img>'
+    + '</div>'
 })
 
-Vue.component('products-grid', 
+Vue.component('start-cards', 
 {
-    template: ''
+    template: '<div><div class="imgBox">'
+    + '<ul>'
+    + '<li><img src="/images/air-max.png"><h2>Nike Shoes</h2></li>'
+    + '</ul></div></div>'
 })
 
 

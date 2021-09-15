@@ -6,6 +6,18 @@
 }
 
 /*#region HEADER*/
+section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #262626;
+    overflow: hidden;
+    padding: 100px 20px;
+    box-sizing: border-box;
+}
+
 
 #website-title
 {
@@ -115,22 +127,30 @@
 
 .start-page
 {
-    /* display: block; */
-    max-width: 100%;
-    max-height: 100%;
-    outline: 3px dashed red;
+    display: block;   
+    min-width: 100vh;
+    min-height: 150vh;
 }
 
 
-.start-page #start-image
+.start-page #start-usp
 {
     display: flex;
     justify-content: center;
+    
+}
+
+.start-page #start-usp img
+{
+    display: flex;
+    justify-content: center;
+    min-width: 100%;
+    min-height: 150vh;
 }
 
 /*#region USP*/
 
-.start-page #start-image .usp
+.start-page #start-usp .usp
 {
     display: flex;
     position: absolute;
@@ -143,7 +163,7 @@
     
 }
 
-.start-page #start-image .usp ul
+.start-page #start-usp .usp ul
 {
     color: #101010;
     border-radius: 25px;
@@ -151,13 +171,12 @@
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(15px);
-    outline: 3px dashed red;
     max-width: 100%;
     max-height: 30%;
     
 }
 
-.start-page #start-image .usp ul li
+.start-page #start-usp .usp ul li
 {
     
     list-style: none;
@@ -166,54 +185,46 @@
 /*#endregion*/
 
 /*#region IMGBOX*/
-.start-page #start-image .imgBox
+.start-page #start-cards .start-cards-container
 {
+    position: relative;
+    z-index: 10;
     display: flex;
-    position: absolute;
     justify-content: center;
     align-items: center;
-    width: 40em;
-    height: 30em;
-    outline: 3px dashed red;
-    margin-bottom: 10%;
-    margin-top: 36%;
+    flex-wrap: wrap;
 }
 
-.start-page #start-image img
+.start-page #start-cards
 {
-    min-width: 100vh;
-    min-height: 100vh;
-}
-
-
-#start-image ul h1
-{
-    margin-left: 0.2em;
-} 
-
-.start-page #start-image .imgBox ul
-{
-    display: flex;
-}
-
-.start-page #start-image .imgBox ul li
-{
-    border-radius: 25px;
-    width: 10em;
+    position: relative;
+    width: 300px;
+    height: 400px;
     margin: 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(15px);
-    list-style: none;
-    
+}
+.start-page #start-cards .imgBox
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    transition: 0.5s ease-in-out;
 }
 
-.start-page .imgBox ul li
-{
-    margin: 20px 40px;
-    
-}
+
 /*#endregion*/
+
+
+/*#region CHECKBOXES*/
 
 
 .checkbox-container
@@ -236,11 +247,15 @@
 {
     font-size: 1.3em;
     margin-left: 2em;
+    color: white;
+    position: relative;
+    
 }
 
 .product-list
 {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     justify-content: center;
     margin-top: 2%;
@@ -251,3 +266,180 @@
     width: 30vw;
     outline: .25em solid lightgray;
 }
+
+/*#endregion*/
+
+/*#region START-CARDS*/
+
+.start-cards-container
+{
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.start-cards-container .card
+{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+}
+
+.start-cards-container .card .imgBx
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    transition: 0.5s ease-in-out;
+}
+
+.start-cards-container .card .imgBx h2
+{
+    position: relative;
+    bottom: 2em;
+}
+
+.start-cards-container .card:hover .imgBx
+{
+    transform: translateY(-100px);
+}
+
+
+
+.start-cards-container .card .imgBx img
+{
+    max-width: 100%;
+    margin: 0 0 20px;
+    transition: 0.5s ease-in-out;
+}
+
+.start-cards-container .card:hover .imgBx img
+{
+    transform: translate(-20px, -40px) rotate(-25deg) scale(1.4);
+}
+
+.start-cards-container .card .imgBx h2
+{
+    color: #fff;
+    font-weight: 600;
+}
+
+.start-cards-container .card .content
+{
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.start-cards-container .card:hover .content
+{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-40px);
+}
+
+.start-cards-container .card .content .size,
+.start-cards-container .card .content .color
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+}
+
+.start-cards-container .card .content .size,
+.start-cards-container .card .content .color
+{
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+
+.start-cards-container .card .content .size span
+{
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 24px;
+    display: inline-block;
+    color: #111;
+    background: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 0 5px;
+    font-weight: 500;
+    transition: 0.5s;
+    cursor: pointer;
+    
+}
+
+.start-cards-container .card .content .size span:hover
+{
+    background: #9bdc28;
+}
+
+.start-cards-container .card .content .color span
+{
+    width: 20px;
+    height: 20px;
+    background: #f00;
+    border-radius: 50%;
+    margin: 0 5px;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.start-cards-container .card .content .color span:nth-child(2)
+{
+    background: #9bdc28;
+}
+.start-cards-container .card .content .color span:nth-child(3)
+{
+    background: #03a9f4;
+}
+.start-cards-container .card .content .color span:nth-child(4)
+{
+    background: #e91e63;
+}
+
+.start-cards-container .card .content a
+{
+    position: relative;
+    top: 10px;
+    display: inline-block;
+    padding: 12px 30px;
+    background: #fff;
+    border-radius: 40px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #111;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/*#endregion*/
+
