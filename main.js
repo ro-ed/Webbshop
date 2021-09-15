@@ -48,13 +48,13 @@ Vue.component('start-usp',
     + '</div>'
 })
 
-Vue.component('start-cards', 
-{
-    template: '<div><div class="imgBox">'
-    + '<ul>'
-    + '<li><img src="/images/air-max.png"><h2>Nike Shoes</h2></li>'
-    + '</ul></div></div>'
-})
+// Vue.component('start-cards', 
+// {
+//     template: '<div><div class="imgBox">'
+//     + '<ul>'
+//     + '<li><img src="/images/air-max.png"><h2>Nike Shoes</h2></li>'
+//     + '</ul></div></div>'
+// })
 
 
 
@@ -84,7 +84,8 @@ var app = new Vue(
         typeOfPage: "",
         trousersChecked: "",
         sweatersChecked: "",
-        shoesChecked: ""
+        shoesChecked: "",
+        currentItemsInCart: ""
     },
     methods: {
         showStart: function() {
@@ -95,6 +96,10 @@ var app = new Vue(
         },
         showCart: function() {
             this.typeOfPage = "cart"
+        },
+        addToCart: function()
+        {
+            this.currentItemsInCart++
         }
         
     }

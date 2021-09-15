@@ -5,6 +5,11 @@
     font-family: 'Glory', sans-serif;
 }
 
+html
+{
+    scroll-behavior: smooth;
+}
+
 /*#region HEADER*/
 section
 {
@@ -122,9 +127,31 @@ section
     color: gray;
 }
 
+.small-circle
+{
+    cursor: auto;
+    position: relative;
+    left: 1.5em;
+    bottom: 1.5em;
+    width: 17px;
+    height: 17px;
+    background: red;
+    border-radius: 50%;
+    visibility: visible;
+}
+
+.small-circle p
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
 
 /*#endregion*/
 
+/*#region START-PAGE*/
 .start-page
 {
     display: block;   
@@ -142,11 +169,15 @@ section
 
 .start-page #start-usp img
 {
-    display: flex;
-    justify-content: center;
-    min-width: 100%;
-    min-height: 150vh;
+    
+    margin-top: -7em;
+    min-width: 100vw;
+    min-height: 100vh;
+   
 }
+
+/*#endregion*/
+
 
 /*#region USP*/
 
@@ -173,7 +204,7 @@ section
     backdrop-filter: blur(15px);
     max-width: 100%;
     max-height: 30%;
-    
+    text-indent: 8%;
 }
 
 .start-page #start-usp .usp ul li
@@ -185,7 +216,7 @@ section
 /*#endregion*/
 
 /*#region IMGBOX*/
-.start-page #start-cards .start-cards-container
+/* .start-page #start-cards .start-cards-container
 {
     position: relative;
     z-index: 10;
@@ -218,7 +249,7 @@ section
     flex-direction: column;
     padding: 20px;
     transition: 0.5s ease-in-out;
-}
+} */
 
 
 /*#endregion*/
@@ -226,6 +257,13 @@ section
 
 /*#region CHECKBOXES*/
 
+.product-container h1
+{
+    display: flex;
+    justify-content: center;
+    font-size: 2.5em;
+    color: white;
+}
 
 .checkbox-container
 {
@@ -332,12 +370,61 @@ section
     transform: translate(-20px, -40px) rotate(-25deg) scale(1.4);
 }
 
+.start-cards-container .sweater-card .card .imgBx h2
+{
+    bottom: 1.1em;
+}
+.start-cards-container .sweater-card .card .imgBx h3
+{
+    position: relative;
+    top: 0.5em;
+}
+.start-cards-container .sweater-card .card .imgBx img
+{
+    max-width: 90%;
+    margin: 0 0 20px;
+    transition: 0.5s ease-in-out;
+}
+
+.start-cards-container .sweater-card .card:hover .imgBx img
+{
+    transform: translate(0px, -30px) scale(1.3);
+}
+.start-cards-container .trouser-card .card .imgBx h2
+{
+    bottom: 1.1em;
+}
+.start-cards-container .trouser-card .card:hover .imgBx img
+{
+    transform: translate(0px, -30px) scale(1.3);
+}
+
 .start-cards-container .card .imgBx h2
 {
     color: #fff;
     font-weight: 600;
 }
 
+.start-cards-container .card .imgBx h3
+{
+    color: #fff;
+    font-weight: 600;
+    transition: 0.5s ease-in-out;
+}
+
+.start-cards-container .card:hover .imgBx h3
+{
+    transform: translateY(-42px);
+}
+.start-cards-container .sweater-card .card:hover .imgBx h3
+{
+    transform: translateY(-37px);
+}
+
+.start-cards-container .trouser-card .card:hover .imgBx h3
+{
+    transform: translateY(-26px);
+}
 .start-cards-container .card .content
 {
     position: absolute;
@@ -356,6 +443,11 @@ section
     opacity: 1;
     visibility: visible;
     transform: translateY(-40px);
+}
+
+.start-cards-container .trouser-card .card:hover .content
+{
+    transform: translateY(-22px);
 }
 
 .start-cards-container .card .content .size,
@@ -390,7 +482,7 @@ section
     border-radius: 4px;
     font-size: 14px;
     margin: 0 5px;
-    font-weight: 500;
+    font-weight: 700;
     transition: 0.5s;
     cursor: pointer;
     
@@ -439,6 +531,13 @@ section
     color: #111;
     text-decoration: none;
     text-transform: uppercase;
+    transition: 0.5s ease-in-out;
+}
+
+.start-cards-container .card .content a:hover
+{
+    background: #111;
+    color: #fff;
 }
 
 /*#endregion*/

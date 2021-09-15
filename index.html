@@ -30,165 +30,178 @@
                 <header-icon-favorites></header-icon-favorites>
                 <a v-on:click="showCart()">
                     <header-icon-cart></header-icon-cart>
+                    <div class="small-circle" v-if="currentItemsInCart > 0">
+                        <p v-model="currentItemsInCart">{{currentItemsInCart}}</p>
+                    </div>
                 </a>
+
             </div>
         </header>
 
 
         <section>
 
-        
-        <div class="start-page" v-if="typeOfPage === 'start' || typeOfPage === ''">
 
-            <start-usp id="start-usp"></start-usp>
-            <div class="start-cards-container">
-                <div class="card">
-                    <div class="imgBx">
-                        <img src="/images/air-max.png">
-                        <h2>Nike Shoes</h2>
-                    </div>
-                    <div class="content">
-                        <div class="size">
-                            <h3>Size :</h3>
+            <div class="start-page" v-if="typeOfPage === 'start' || typeOfPage === ''">
+
+                <start-usp id="start-usp"></start-usp>
+                <div class="start-cards-container">
+                    <div class="card">
+                        <div class="imgBx">
+                            <img src="/images/air-max.png">
+                            <h2>Nike Air Max</h2>
+                            <h3>1199kr</h3>
+                        </div>
+                        <div class="content">
+                            <div class="size">
+                                <h3>Size :</h3>
                                 <span>41</span>
                                 <span>42</span>
                                 <span>43</span>
                                 <span>44</span>
+                            </div>
+                            <div class="color">
+                                <h3>Color :</h3>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <a href="#" v-on:click="addToCart()">Add to cart</a>
                         </div>
-                        <div class="color">
-                            <h3>Color :</h3>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                        </div>
-                        <a href="#">Buy Now</a>
                     </div>
+                    <div class="sweater-card">
+                        <div class="card">
+                            <div class="imgBx">
+                                <img src="/images/gray-sweater.png">
+                                <h2>SMOG Gray Sweater</h2>
+                                <h3>399kr</h3>
+                            </div>
+                            <div class="content">
+                                <div class="size">
+                                    <h3>Size :</h3>
+                                    <span>41</span>
+                                    <span>42</span>
+                                    <span>43</span>
+                                    <span>44</span>
+                                </div>
+                                <div class="color">
+                                    <h3>Color :</h3>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <a href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trouser-card">
+                        <div class="card">
+                            <div class="imgBx">
+                                <img src="/images/dri-fit-academy-women.png">
+                                <h2>Nike Dri-Fit</h2>
+                                <h3>1299kr</h3>
+                            </div>
+                            <div class="content">
+                                <div class="size">
+                                    <h3>Size :</h3>
+                                    <span>41</span>
+                                    <span>42</span>
+                                    <span>43</span>
+                                    <span>44</span>
+                                </div>
+                                <div class="color">
+                                    <h3>Color :</h3>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <a href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <start-cards id="start-cards"></start-cards> -->
                 </div>
-                <div class="card">
-                    <div class="imgBx">
-                        <img src="/images/air-max.png">
-                        <h2>Nike Shoes</h2>
-                    </div>
-                    <div class="content">
-                        <div class="size">
-                            <h3>Size :</h3>
-                                <span>41</span>
-                                <span>42</span>
-                                <span>43</span>
-                                <span>44</span>
-                        </div>
-                        <div class="color">
-                            <h3>Color :</h3>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                        </div>
-                        <a href="#">Buy Now</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="imgBx">
-                        <img src="/images/air-max.png">
-                        <h2>Nike Shoes</h2>
-                    </div>
-                    <div class="content">
-                        <div class="size">
-                            <h3>Size :</h3>
-                                <span>41</span>
-                                <span>42</span>
-                                <span>43</span>
-                                <span>44</span>
-                        </div>
-                        <div class="color">
-                            <h3>Color :</h3>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                        </div>
-                        <a href="#">Buy Now</a>
-                    </div>
-                </div>
-                <!-- <start-cards id="start-cards"></start-cards> -->
             </div>
-        </div>
 
-    
 
-        <div class="product-page" v-if="typeOfPage === 'product'">
-            <div class="product-container">
-                <div class="checkbox-container">
-                    <ul class="checkbox-list">
-                        <li>
-                            <input type="checkbox" id="trousersCB" v-model="trousersChecked">
-                            <label for="trousersCB">Trousers</label>
+
+            <div class="product-page" v-if="typeOfPage === 'product'">
+                <div class="product-container">
+                    <h1>Choose a category: <br><br></h1>
+                    <div class="checkbox-container">
+
+                        <ul class="checkbox-list">
+                            <li>
+                                <input type="checkbox" id="trousersCB" v-model="trousersChecked">
+                                <label for="trousersCB">Trousers</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="sweatersCB" v-model="sweatersChecked">
+                                <label for="sweatersCB">Sweaters</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="shoesCB" v-model="shoesChecked">
+                                <label for="shoesCB">Shoes</label>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <ul class="product-list" v-if="trousersChecked == true">
+                        <li class="product-item">
+
+                            <img src="/images/black-costume-trousers.jpg">
                         </li>
-                        <li>
-                            <input type="checkbox" id="sweatersCB" v-model="sweatersChecked">
-                            <label for="sweatersCB">Sweaters</label>
+                        <li class="product-item">
+
+                            <img src="/images/gray-costume-trousers.jpg">
                         </li>
-                        <li>
-                            <input type="checkbox" id="shoesCB" v-model="shoesChecked">
-                            <label for="shoesCB">Shoes</label>
+                        <li class="product-item">
+
+                            <img src="/images/stripes.jpg">
+                        </li>
+
+
+                    </ul>
+                    <ul class="product-list" v-if="sweatersChecked == true">
+                        <li class="product-item">
+
+                            <img src="/images/Rambaldi-Hazel.jpg">
+                        </li>
+                        <li class="product-item">
+
+                            <img src="/images/blue-sweater.jpg">
+                        </li>
+                        <li class="product-item">
+
+                            <img src="/images/gray-sweater.jpg">
+                        </li>
+                    </ul>
+                    <ul class="product-list" v-if="shoesChecked == true">
+                        <li class="product-item">
+
+                            <img src="/images/white-shoes-adidas.jpg">
+                        </li>
+                        <li class="product-item">
+
+                            <img src="/images/nike-air-zoom-structure.jpg">
+                        </li>
+                        <li class="product-item">
+
+                            <img src="/images/361chromoso.jpg">
                         </li>
                     </ul>
                 </div>
-
-
-                <ul class="product-list" v-if="trousersChecked == true">
-                    <li class="product-item">
-
-                        <img src="/images/black-costume-trousers.jpg">
-                    </li>
-                    <li class="product-item">
-
-                        <img src="/images/gray-costume-trousers.jpg">
-                    </li>
-                    <li class="product-item">
-
-                        <img src="/images/stripes.jpg">
-                    </li>
-                    
-
-                </ul>
-                <ul class="product-list" v-if="sweatersChecked == true">
-                    <li class="product-item">
-
-                        <img src="/images/Rambaldi-Hazel.jpg">
-                    </li>
-                    <li class="product-item">
-
-                        <img src="/images/blue-sweater.jpg">
-                    </li>
-                    <li class="product-item">
-
-                        <img src="/images/gray-sweater.jpg">
-                    </li>
-                </ul>
-                <ul class="product-list" v-if="shoesChecked == true">
-                    <li class="product-item">
-
-                        <img src="/images/white-shoes-adidas.jpg">
-                    </li>
-                    <li class="product-item">
-
-                        <img src="/images/nike-air-zoom-structure.jpg">
-                    </li>
-                    <li class="product-item">
-
-                        <img src="/images/361chromoso.jpg">
-                    </li>
-                </ul>
             </div>
-        </div>
-        <div class="cart-page" v-if="typeOfPage === 'cart'">
+            <div class="cart-page" v-if="typeOfPage === 'cart'">
 
-        </div>
+            </div>
     </div>
 
-</section>
+    </section>
 
 
 
