@@ -309,6 +309,7 @@ section
 
 /*#region START-CARDS*/
 
+
 .start-cards-container
 {
     position: relative;
@@ -606,5 +607,53 @@ section
     background: #111;
     color: #fff;
 }
+/*#endregion*/
+
+
+/*#region CART-PAGE*/
+
+.cart-page ul
+{
+    width: 80vw;
+    
+    background: white;
+    list-style: none;
+    border-radius: 40px;
+}
+
+.cart-page ul li
+{
+    min-height: 6em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    outline: 1px solid #262626;
+}
+
+.cart-page ul li img
+{
+    width: 9em;
+    height: 9em;
+    
+}
+
+.cart-page #x-icon #x-svg
+{
+    height: 3em;
+    width: 3em;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.cart-page #x-icon #x-svg:hover
+{
+    border-radius: 55%;
+    background: red;
+}
+
+
+
+
+
 /*#endregion*/
 

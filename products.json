@@ -1,5 +1,5 @@
 {
-  "category": [
+  "categories": [
     {
       "t-shirts": [
         {
@@ -40,9 +40,18 @@
       "shoes": [
         {
           "ID": "1",
-          "Name": "Nike Air Max",
+          "Brand": "Nike",
+          "Model": "Air Max",
           "Price": 1199,
-          "Description": "Good looking shoes",
+          "Description": "Fast shoes",
+          "Img": "imgsrc.jpg"
+        },
+        {
+          "ID": "2",
+          "Brand": "Nike",
+          "Model": "Air Minimum",
+          "Price": 199,
+          "Description": "Bad looking shoes",
           "Img": "imgsrc.jpg"
         }
       ]
