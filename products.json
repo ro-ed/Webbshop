@@ -1,0 +1,52 @@
+{
+  "category": [
+    {
+      "t-shirts": [
+        {
+          "ID": "1",
+          "Name": "T-Shirt",
+          "Price": 299,
+          "Description": "Our plain white t-shirt is made from 100% organically grown cotton produced from our Stockholm terrarium. This loose fit t-shirt feels like heaven to wear, and its message is simple but clear. Accept and enjoy the present.",
+          "Img": "imgsrc.jpg"
+        }
+      ],
+      "underwear": [
+        {
+          "ID": "1",
+          "Name": "Underwear",
+          "Price": 59,
+          "Description": "Comfy mens underwear",
+          "Img": "imgsrc.jpg"
+        }
+      ],
+      "trousers": [
+        {
+          "ID": "1",
+          "Name": "Trousers",
+          "Price": 159,
+          "Description": "Good looking trouser",
+          "Img": "imgsrc.jpg"
+        }
+      ],
+      "sweaters": [
+        {
+          "ID": "1",
+          "Name": "Sweater",
+          "Price": 159,
+          "Description": "Good looking sweater",
+          "Img": "imgsrc.jpg"
+        }
+      ],
+      "shoes": [
+        {
+          "ID": "1",
+          "Name": "Nike Air Max",
+          "Price": 1199,
+          "Description": "Good looking shoes",
+          "Img": "imgsrc.jpg"
+        }
+      ]
+    }
+  
+  ]
+}

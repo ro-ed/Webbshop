@@ -59,7 +59,11 @@ var app = new Vue(
         trousersChecked: "",
         sweatersChecked: "",
         shoesChecked: "",
-        currentItemsInCart: ""
+        currentItemsInCartNumber: "",
+        currentItemsInCartArray: [
+            {}
+        ]
+
     },
     methods: {
         showStart: function() {
@@ -73,7 +77,7 @@ var app = new Vue(
         },
         addToCart: function()
         {
-            this.currentItemsInCart++
+            this.currentItemsInCartNumber = this.currentItemsInCartArray.length;
         },
         toggle: function()
         {
@@ -81,8 +85,14 @@ var app = new Vue(
             blur.classList.toggle('active');
             var popup = document.getElementById('popup');
             popup.classList.toggle('active');
+        },
+        fetchData: async function ()
+        {
+            await axios.get('products.json')
+            .then(response => {
+                console.log(response.data)
+            })
         }
-        
     }
         
 })

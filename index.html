@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,8 +31,8 @@
                 <header-icon-favorites></header-icon-favorites>
                 <a v-on:click="showCart()">
                     <header-icon-cart></header-icon-cart>
-                    <div class="small-circle" v-if="currentItemsInCart > 0">
-                        <p v-model="currentItemsInCart">{{currentItemsInCart}}</p>
+                    <div class="small-circle" v-if="currentItemsInCartNumber > 0">
+                        <p v-model="currentItemsInCartNumber">{{currentItemsInCartNumber}}</p>
                     </div>
                 </a>
 
@@ -85,10 +86,10 @@
                             <div class="content">
                                 <div class="size">
                                     <h3>Size :</h3>
-                                    <span>41</span>
-                                    <span>42</span>
-                                    <span>43</span>
-                                    <span>44</span>
+                                    <span>S</span>
+                                    <span>M</span>
+                                    <span>L</span>
+                                    <span>XL</span>
                                 </div>
                                 <div class="color">
                                     <h3>Color :</h3>
@@ -99,7 +100,7 @@
                                 </div>
                                 <div class="buttons">
                                     <a href="#" v-on:click="addToCart()">Add to cart</a>
-                                    <a href="#">More info</a>
+                                    <a v-on:click="fetchData()">AXIOS</a>
                                 </div>
                             </div>
                         </div>
@@ -114,10 +115,10 @@
                             <div class="content">
                                 <div class="size">
                                     <h3>Size :</h3>
-                                    <span>41</span>
-                                    <span>42</span>
-                                    <span>43</span>
-                                    <span>44</span>
+                                    <span>S</span>
+                                    <span>M</span>
+                                    <span>L</span>
+                                    <span>XL</span>
                                 </div>
                                 <div class="color">
                                     <h3>Color :</h3>
