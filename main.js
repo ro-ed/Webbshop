@@ -48,32 +48,6 @@ Vue.component('start-usp',
     + '</div>'
 })
 
-// Vue.component('start-cards', 
-// {
-//     template: '<div><div class="imgBox">'
-//     + '<ul>'
-//     + '<li><img src="/images/air-max.png"><h2>Nike Shoes</h2></li>'
-//     + '</ul></div></div>'
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 var app = new Vue(
@@ -100,6 +74,13 @@ var app = new Vue(
         addToCart: function()
         {
             this.currentItemsInCart++
+        },
+        toggle: function()
+        {
+            var blur = document.getElementById('blur');
+            blur.classList.toggle('active');
+            var popup = document.getElementById('popup');
+            popup.classList.toggle('active');
         }
         
     }

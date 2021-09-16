@@ -45,7 +45,7 @@
             <div class="start-page" v-if="typeOfPage === 'start' || typeOfPage === ''">
 
                 <start-usp id="start-usp"></start-usp>
-                <div class="start-cards-container">
+                <div class="start-cards-container" id="blur">
                     <div class="card">
                         <div class="imgBx">
                             <img src="/images/air-max.png">
@@ -69,7 +69,7 @@
                             </div>
                             <div class="buttons">
                                 <a href="#" v-on:click="addToCart()">Add to cart</a>
-                                <a href="#">More info</a>
+                                <a v-on:click="toggle()">More info</a>
                             </div>
 
 
@@ -97,7 +97,10 @@
                                     <span></span>
                                     <span></span>
                                 </div>
-                                <a href="#">Add to cart</a>
+                                <div class="buttons">
+                                    <a href="#" v-on:click="addToCart()">Add to cart</a>
+                                    <a href="#">More info</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -123,11 +126,19 @@
                                     <span></span>
                                     <span></span>
                                 </div>
-                                <a href="#">Add to cart</a>
+                                <div class="buttons">
+                                    <a href="#" v-on:click="addToCart()">Add to cart</a>
+                                    <a href="#">More info</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- <start-cards id="start-cards"></start-cards> -->
+                </div>
+                <div id="popup">
+                    <h2>Product</h2>
+                    <p>Some info</p>
+                    <a v-on:click="toggle()">Close</a>
                 </div>
             </div>
 

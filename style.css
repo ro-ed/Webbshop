@@ -322,8 +322,8 @@ section
 .start-cards-container .card
 {
     position: relative;
-    width: 300px;
-    height: 400px;
+    width: 350px;
+    height: 500px;
     margin: 20px 40px;
     display: flex;
     justify-content: center;
@@ -372,7 +372,7 @@ section
 
 .start-cards-container .sweater-card .card .imgBx h2
 {
-    bottom: 1.1em;
+    bottom: 1em;
 }
 .start-cards-container .sweater-card .card .imgBx h3
 {
@@ -392,7 +392,7 @@ section
 }
 .start-cards-container .trouser-card .card .imgBx h2
 {
-    bottom: 1.1em;
+    bottom: 0.8em;
 }
 .start-cards-container .trouser-card .card:hover .imgBx img
 {
@@ -418,12 +418,12 @@ section
 }
 .start-cards-container .sweater-card .card:hover .imgBx h3
 {
-    transform: translateY(-37px);
+    transform: translateY(-32px);
 }
 
 .start-cards-container .trouser-card .card:hover .imgBx h3
 {
-    transform: translateY(-26px);
+    transform: translateY(-19px);
 }
 .start-cards-container .card .content
 {
@@ -545,13 +545,66 @@ section
     color: #fff;
 }
 
-.buttons 
+.buttons a
 {
-    display: flex;
-   
+    /* display: flex; */
+  margin: 8px;
+  cursor: pointer;
 }
 
+.start-cards-container#blur.active
+{
+    filter: blur(10px);
+    pointer-events: none;
+    user-select: none;
+}
 
+#popup
+{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 35vw;
+    border-radius: 40px;
+    padding: 50px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    background: white;
+    visibility: hidden;
+    opacity: 0;
+}
 
+#popup.active
+{
+    top: 50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+#popup a
+{
+    position: relative;
+    top: 10px;
+    display: inline-block;
+    padding: 12px 30px;
+    background: #fff;
+    border: 1px solid #111;
+    border-radius: 40px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #111;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+#popup a:hover
+{
+    background: #111;
+    color: #fff;
+}
 /*#endregion*/
 
