@@ -48,10 +48,8 @@
                 <start-usp id="start-usp"></start-usp>
                 <div class="start-cards-container" id="blur">
                     <div class="card">
-                        <div class="imgBx">
-                            <img src="/images/air-max.png">
-                            <h2>Nike Air Max</h2>
-                            <h3>1199kr</h3>
+                        <div class="imgBx" id="imgBx-shoes">
+                           
                         </div>
                         <div class="content">
                             <div class="size">
@@ -69,7 +67,7 @@
                                 <span></span>
                             </div>
                             <div class="buttons">
-                                <a href="#" v-on:click="addToCart()">Add to cart</a>
+                                <a href="#" v-on:click="addToCart('8a609b4b-b002-4eee-aa0c-e4fed93d2193')">Add to cart</a>
                                 <a v-on:click="toggle()">More info</a>
                             </div>
 
@@ -78,10 +76,8 @@
                     </div>
                     <div class="sweater-card">
                         <div class="card">
-                            <div class="imgBx">
-                                <img src="/images/gray-sweater.png">
-                                <h2>SMOG Gray Sweater</h2>
-                                <h3>399kr</h3>
+                            <div class="imgBx" id="imgBx-sweater">
+                                
                             </div>
                             <div class="content">
                                 <div class="size">
@@ -107,10 +103,8 @@
                     </div>
                     <div class="trouser-card">
                         <div class="card">
-                            <div class="imgBx">
-                                <img src="/images/dri-fit-academy-women.png">
-                                <h2>Nike Dri-Fit</h2>
-                                <h3>1299kr</h3>
+                            <div class="imgBx" id="imgBx-trouser">
+                                
                             </div>
                             <div class="content">
                                 <div class="size">
@@ -129,11 +123,38 @@
                                 </div>
                                 <div class="buttons">
                                     <a href="#" v-on:click="addToCart()">Add to cart</a>
-                                    <a href="#">More info</a>
+                                    <a v-on:click="toggle()">More info</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- <div class="test-card">
+                        <div class="card">
+                            <div class="imgBx" id="imgBxTEST">
+                               
+                            </div>
+                            <div class="content">
+                                <div class="size">
+                                    <h3>Size :</h3>
+                                    <span>41</span>
+                                    <span>42</span>
+                                    <span>43</span>
+                                    <span>44</span>
+                                </div>
+                                <div class="color">
+                                    <h3>Color :</h3>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="buttons">
+                                    <a href="#" v-on:click="addToCart('8a609b4b-b002-4eee-aa0c-e4fed93d2193')">Add to cart</a>
+                                    <a v-on:click="toggle()">More info</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
                     <!-- <start-cards id="start-cards"></start-cards> -->
                 </div>
                 <div id="popup">
@@ -214,8 +235,10 @@
                 </div>
             </div>
             <div class="cart-page" v-if="typeOfPage === 'cart'">
+                <h1>Shopping Cart</h1>
                 <ul id="cart-list">
                     <li>
+
                         <img src="/images/361chromoso.jpg" alt="">
                         <h2>Brand: 361°</h2>
                         <h2>Model: Chromoso</h2>
@@ -228,8 +251,8 @@
                         <img src="/images/361chromoso.jpg" alt="">
                         <h2>Name: Nice shoes</h2>
                     </li>
-             
-                    
+
+
                 </ul>
             </div>
     </div>

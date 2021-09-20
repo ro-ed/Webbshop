@@ -538,6 +538,8 @@ section
     text-decoration: none;
     text-transform: uppercase;
     transition: 0.5s ease-in-out;
+    border: none;
+    font-size: 1em;
 }
 
 .start-cards-container .card .content a:hover
@@ -548,10 +550,11 @@ section
 
 .buttons a
 {
-    /* display: flex; */
   margin: 8px;
   cursor: pointer;
 }
+
+
 
 .start-cards-container#blur.active
 {
@@ -612,10 +615,20 @@ section
 
 /*#region CART-PAGE*/
 
+
+.cart-page h1
+{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    bottom: 2em;
+    color: #fff;
+    font-size: 3em;
+}
+
 .cart-page ul
 {
     width: 80vw;
-    
     background: white;
     list-style: none;
     border-radius: 40px;
@@ -628,13 +641,15 @@ section
     align-items: center;
     justify-content: space-evenly;
     outline: 1px solid #262626;
+    flex-wrap: wrap;
+    
 }
 
 .cart-page ul li img
 {
     width: 9em;
     height: 9em;
-    
+    border-radius: 40px;
 }
 
 .cart-page #x-icon #x-svg

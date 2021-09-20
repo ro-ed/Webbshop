@@ -1,7 +1,7 @@
 {
   "categories": [
     {
-      "t-shirts": [
+      "tshirts": [
         {
           "ID": "1",
           "Name": "T-Shirt",
@@ -21,30 +21,33 @@
       ],
       "trousers": [
         {
-          "ID": "1",
-          "Name": "Trousers",
-          "Price": 159,
+          "ID": "3ed9dcff-99d6-4f37-b9d4-e3ace1e78324",
+          "Brand": "Nike",
+          "Model": "Dri-Fit",
+          "Price": 1299,
           "Description": "Good looking trouser",
-          "Img": "imgsrc.jpg"
+          "Img": "/images/dri-fit-academy-women.png"
         }
       ],
       "sweaters": [
         {
-          "ID": "1",
-          "Name": "Sweater",
-          "Price": 159,
+          "ID": "d42275ce-6874-4d1d-96d3-ae94aacdf14a",
+          "Brand": "SMOG",
+          "Model": "Gray Sweater",
+          "Price": 399,
           "Description": "Good looking sweater",
-          "Img": "imgsrc.jpg"
+          "Img": "/images/gray-sweater.png"
         }
       ],
       "shoes": [
         {
-          "ID": "1",
+          "ID": "8a609b4b-b002-4eee-aa0c-e4fed93d2193",
           "Brand": "Nike",
           "Model": "Air Max",
           "Price": 1199,
           "Description": "Fast shoes",
-          "Img": "imgsrc.jpg"
+          "Img": "/images/air-max.png",
+          "showOnFirstPage": true
         },
         {
           "ID": "2",
@@ -52,7 +55,7 @@
           "Model": "Air Minimum",
           "Price": 199,
           "Description": "Bad looking shoes",
-          "Img": "imgsrc.jpg"
+          "Img": "/images/air-max.png"
         }
       ]
     }
