@@ -1,5 +1,5 @@
 let globalJSONArray = []
-
+let allCategories = [globalJSONArray.tshirts, globalJSONArray.underwear, globalJSONArray.trousers, globalJSONArray.sweaters, globalJSONArray.shoes]
 
 Vue.component('website-title',
     {
@@ -78,44 +78,65 @@ var app = new Vue(
             currentItemsInCartArray: [
 
             ],
+            imageLink: ""
 
         },
         methods: {
             showStart: async function () {
                 this.typeOfPage = "start";
-                await this.testFillWithItems();
+                await this.fetchData();
+                var imgBxShoes = document.getElementById('imgBx-shoes');
+                if (imgBxShoes.innerHTML === "") {
+                    await this.testFillWithItems();
+                }
+
             },
             showProduct: function () {
                 this.typeOfPage = "product"
             },
-            showCart: function () {
+            showCart: async function () {
                 this.typeOfPage = "cart"
+                console.log(this.currentItemsInCartArray);
             },
-            addToCart: function (objectID) {
-                this.currentItemsInCartNumber = this.currentItemsInCartArray.length;
-                console.log(this.currentItemsInCartArray.length);
+            addToCart: async function (objectID) {
+                await this.showCart();
+
+                //console.log(this.currentItemsInCartArray.length);
 
                 let inputIDToString = objectID.toString();
-                console.log(inputIDToString);
-                console.log(globalJSONArray);
+                //console.log(inputIDToString);
+                //console.log(globalJSONArray);
 
-                // let allCategories = [globalJSONArray.tshirts, globalJSONArray.underwear, globalJSONArray.trousers, globalJSONArray.sweaters, globalJSONArray.shoes]
-
-                console.log('ALLCATEGORIES', allCategories)
+                let allCategories = [globalJSONArray.tshirts, globalJSONArray.underwear, globalJSONArray.trousers, globalJSONArray.sweaters, globalJSONArray.shoes]
 
                 allCategories.forEach(category => {
-                    console.log(category)
                     category.forEach(produkt => {
                         if (produkt.ID == inputIDToString) {
                             console.log('Produkten som läggs till:', produkt);
-                            currentItemsInCartArray.push(produkt);
-                            console.log('Produkter i arrayen:', currentItemsInCartArray);
+                            this.currentItemsInCartArray.push(produkt);
+                            console.log('Produkter i arrayen:', this.currentItemsInCartArray);
+                            this.imageLink = produkt.Img
+                            console.log(this.currentItemsInCartNumber)
+                            // let getCartList = document.getElementById('cart-list');
+                            // console.log(getCartList)
+                            // let newLi = document.createElement('li'); 
+                            // console.log(newLi)
+                            // let newImg = document.createElement('img')
+                            // newImg.src = produkt.Img
+                            // newLi.appendChild(newImg);
+                            // getCartList.appendChild(newLi)
+                            // console.log("The image", newImg.src)
+
+
+
                         }
                     })
 
 
 
                 });
+                this.currentItemsInCartNumber = this.currentItemsInCartArray.length;
+                await this.showStart();
             },
             toggle: function () {
                 var blur = document.getElementById('blur');
@@ -136,9 +157,9 @@ var app = new Vue(
                 let getImageBox_shoes = document.getElementById('imgBx-shoes');
                 let getImageBox_sweater = document.getElementById('imgBx-sweater');
                 let getImageBox_trouser = document.getElementById('imgBx-trouser');
-                
+
                 let allCategories = [globalJSONArray.tshirts, globalJSONArray.underwear, globalJSONArray.trousers, globalJSONArray.sweaters, globalJSONArray.shoes]
-                
+
                 allCategories.forEach(category => {
                     category.forEach(produkt => {
                         switch (produkt.ID) {

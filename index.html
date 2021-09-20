@@ -49,7 +49,7 @@
                 <div class="start-cards-container" id="blur">
                     <div class="card">
                         <div class="imgBx" id="imgBx-shoes">
-                           
+
                         </div>
                         <div class="content">
                             <div class="size">
@@ -67,7 +67,8 @@
                                 <span></span>
                             </div>
                             <div class="buttons">
-                                <a href="#" v-on:click="addToCart('8a609b4b-b002-4eee-aa0c-e4fed93d2193')">Add to cart</a>
+                                <a href="#" v-on:click="addToCart('8a609b4b-b002-4eee-aa0c-e4fed93d2193')">Add to
+                                    cart</a>
                                 <a v-on:click="toggle()">More info</a>
                             </div>
 
@@ -77,7 +78,7 @@
                     <div class="sweater-card">
                         <div class="card">
                             <div class="imgBx" id="imgBx-sweater">
-                                
+
                             </div>
                             <div class="content">
                                 <div class="size">
@@ -104,7 +105,7 @@
                     <div class="trouser-card">
                         <div class="card">
                             <div class="imgBx" id="imgBx-trouser">
-                                
+
                             </div>
                             <div class="content">
                                 <div class="size">
@@ -236,8 +237,16 @@
             </div>
             <div class="cart-page" v-if="typeOfPage === 'cart'">
                 <h1>Shopping Cart</h1>
-                <ul id="cart-list">
-                    <li>
+                <ul  id="cart-list">
+                    <li v-for="item in currentItemsInCartArray">
+                        <img v-bind:src= "imageLink">
+                        <h2>Brand: {{item.Brand}}</h2>
+                        <h2>Model: {{item.Model}}</h2>
+                        <h2>Price: {{item.Price}}kr</h2>
+                        <x-icon id="x-icon"></x-icon>
+                    </li>
+
+                    <!-- <li>
 
                         <img src="/images/361chromoso.jpg" alt="">
                         <h2>Brand: 361°</h2>
@@ -245,12 +254,10 @@
                         <h2>Size: 43</h2>
                         <h2>Color: Green</h2>
                         <h2>Price: 599kr</h2>
-                        <x-icon id="x-icon"></x-icon>
-                    </li>
-                    <li>
-                        <img src="/images/361chromoso.jpg" alt="">
-                        <h2>Name: Nice shoes</h2>
-                    </li>
+                        
+                    </li> -->
+
+
 
 
                 </ul>
