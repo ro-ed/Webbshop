@@ -78,7 +78,8 @@ var app = new Vue(
             currentItemsInCartArray: [
 
             ],
-            imageLink: ""
+            imageLink: "",
+            totalPrice: ""
 
         },
         methods: {
@@ -116,7 +117,7 @@ var app = new Vue(
                             this.currentItemsInCartArray.push(produkt);
                             console.log('Produkter i arrayen:', this.currentItemsInCartArray);
                             this.imageLink = produkt.Img
-                            console.log(this.currentItemsInCartNumber)
+
                             // let getCartList = document.getElementById('cart-list');
                             // console.log(getCartList)
                             // let newLi = document.createElement('li'); 
@@ -136,7 +137,13 @@ var app = new Vue(
 
                 });
                 this.currentItemsInCartNumber = this.currentItemsInCartArray.length;
+                console.log(this.currentItemsInCartNumber)
+                this.totalPrice = this.currentItemsInCartArray.reduce(function (accumulator, item) {
+                    return accumulator + item.Price;
+                  },0);
+                console.log("TOTALPRICE:",this.totalPrice)
                 await this.showStart();
+
             },
             toggle: function () {
                 var blur = document.getElementById('blur');
@@ -221,7 +228,17 @@ var app = new Vue(
                         }
                     })
                 });
-            }
+            },
+            deleteItemByIndex: function (index) {
+                this.currentItemsInCartArray.splice(index, 1)
+                console.log("Items in cart:", this.currentItemsInCartArray.length)
+                this.currentItemsInCartNumber = this.currentItemsInCartArray.length;
+                this.totalPrice = this.currentItemsInCartArray.reduce(function (accumulator, item) {
+                    return accumulator + item.Price;
+                  },0);
+            },
+          
+
         }
 
     })
