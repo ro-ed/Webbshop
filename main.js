@@ -240,6 +240,9 @@ var app = new Vue(
                     this.totalCost += this.totalPrice + 59;
                     this.totalCostVAT += this.totalCost * 0.25
                 }
+
+                console.log(this.$refs.firstname_ref.value)
+                
             }
 
         }
