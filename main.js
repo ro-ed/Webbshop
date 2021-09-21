@@ -79,7 +79,8 @@ var app = new Vue(
 
             ],
             imageLink: "",
-            totalPrice: ""
+            totalPrice: "",
+            totalVAT: ""
 
         },
         methods: {
@@ -102,12 +103,8 @@ var app = new Vue(
             addToCart: async function (objectID) {
                 await this.showCart();
 
-                //console.log(this.currentItemsInCartArray.length);
-
                 let inputIDToString = objectID.toString();
-                //console.log(inputIDToString);
-                //console.log(globalJSONArray);
-
+                
                 let allCategories = [globalJSONArray.tshirts, globalJSONArray.underwear, globalJSONArray.trousers, globalJSONArray.sweaters, globalJSONArray.shoes]
 
                 allCategories.forEach(category => {
@@ -118,30 +115,16 @@ var app = new Vue(
                             console.log('Produkter i arrayen:', this.currentItemsInCartArray);
                             this.imageLink = produkt.Img
 
-                            // let getCartList = document.getElementById('cart-list');
-                            // console.log(getCartList)
-                            // let newLi = document.createElement('li'); 
-                            // console.log(newLi)
-                            // let newImg = document.createElement('img')
-                            // newImg.src = produkt.Img
-                            // newLi.appendChild(newImg);
-                            // getCartList.appendChild(newLi)
-                            // console.log("The image", newImg.src)
-
-
-
                         }
                     })
-
-
-
                 });
                 this.currentItemsInCartNumber = this.currentItemsInCartArray.length;
                 console.log(this.currentItemsInCartNumber)
                 this.totalPrice = this.currentItemsInCartArray.reduce(function (accumulator, item) {
                     return accumulator + item.Price;
-                  },0);
-                console.log("TOTALPRICE:",this.totalPrice)
+                }, 0);
+                console.log("TOTALPRICE:", this.totalPrice);
+                this.totalVAT = this.totalPrice * 0.25;
                 await this.showStart();
 
             },
@@ -235,9 +218,10 @@ var app = new Vue(
                 this.currentItemsInCartNumber = this.currentItemsInCartArray.length;
                 this.totalPrice = this.currentItemsInCartArray.reduce(function (accumulator, item) {
                     return accumulator + item.Price;
-                  },0);
+                }, 0);
+                this.totalVAT = this.totalPrice * 0.25;
             },
-          
+
 
         }
 

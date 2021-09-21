@@ -666,9 +666,96 @@ section
     background: red;
 }
 
+#payment-form 
+{
+    display: grid;
+    grid-template-columns: 2 1fr;
+    grid-template-rows: 6 1fr;
+    column-gap: 1em;
+    outline: 2px dashed red;
+    padding: 1%;
+}
 
+#payment-form .billing-info
+{
+    display: grid;
+}
 
+#payment-form .billing-info input
+{
+    padding: 0.5%;
+    font-size: 1.5em;
+}
 
+#payment-form .billing-info label
+{
+    color: #fff;
+    font-size: 1.5em;
+}
 
+#payment-form .shipping-info
+{
+    display: flex;
+    justify-content: space-evenly;
+    grid-column: 2;
+    outline: 2px dashed blue;
+    align-items: center;
+}
+
+#payment-form .shipping-info .dhl-box
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline: 1px dashed yellow;
+    max-height: 12em;
+    margin-right: 0.5em;
+    
+}
+
+#payment-form .shipping-info .dhl-box img
+{
+    margin-bottom: 2em;
+    width: 6em;
+    color: #262626;
+}
+
+#payment-form .shipping-info .dhl-box input
+{
+    margin-bottom: 1em;
+}
+
+#payment-form .shipping-info .schenker-box
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline: 1px dashed yellow;
+    max-height: 12em;
+    
+}
+
+#payment-form .shipping-info .schenker-box img
+{
+    margin-bottom: 2em;
+    background: #262626;
+    width: 6em;
+}
+
+#payment-form .shipping-info .schenker-box input
+{
+    margin-bottom: 1em;
+}
+#payment-form .shipping-info input
+{
+    
+    font-size: 1.5em;
+}
+#payment-form .shipping-info label
+{
+    color: #fff;
+    font-size: 1.5em;
+    margin-left: 2%;
+}
 /*#endregion*/
 

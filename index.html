@@ -209,9 +209,9 @@
             </div>
             <div class="cart-page" v-if="typeOfPage === 'cart'">
                 <h1>Shopping Cart</h1>
-                <ul  id="cart-list">
+                <ul id="cart-list">
                     <li v-for="(item, index) in currentItemsInCartArray">
-                        <img v-bind:src= "imageLink">
+                        <img v-bind:src="imageLink">
                         <h2>Brand: {{item.Brand}}</h2>
                         <h2>Model: {{item.Model}}</h2>
                         <h2>Price: {{item.Price}}kr</h2>
@@ -219,10 +219,41 @@
                             <x-icon id="x-icon"></x-icon>
                         </a>
                     </li>
-                    <li v-model="totalPrice">
-                        <h2>{{totalPrice}}kr</h2>
+                    <li v-model="totalPrice, totalVAT" v-if="currentItemsInCartArray.length > 0">
+                        <h2>Total price: {{totalPrice}}kr ({{totalVAT}}kr VAT)</h2>
                     </li>
                 </ul>
+                <form action="" id="payment-form">
+                    <div class="billing-info">
+                        <label for="">First name</label>
+                        <input type="text">
+
+                        <label for="">Surname</label>
+                        <input type="text">
+
+                        <label for="">Address</label>
+                        <input type="text">
+
+                        <label for="">Phonenumber</label>
+                        <input type="number" id="">
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email">
+                    </div>
+
+                    <div class="shipping-info">
+                        <div class="dhl-box">
+                            <img src="/images/new-dhl-logo.png">
+                            <input type="radio" id="radio1" name="shipping">
+                            <label>+49kr</label>
+                        </div>
+                        <div class="schenker-box">
+                            <img src="/images/db-schenker-vector-logo.png">
+                            <input type="radio" id="radio2" name="shipping">
+                            <label>+59kr</label>
+                        </div>
+                    </div>
+                </form>
             </div>
     </div>
 
