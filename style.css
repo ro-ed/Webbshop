@@ -668,81 +668,101 @@ section
 
 #payment-form 
 {
-    display: grid;
-    grid-template-columns: 2 1fr;
-    grid-template-rows: 6 1fr;
-    column-gap: 1em;
-    outline: 2px dashed red;
+    
+    max-width: 50em;
     padding: 1%;
+    border: 1px solid #fff;
+    margin-top: 2%;
+    border-radius: 25px;
 }
 
-#payment-form .billing-info
+#payment-form .personal-info
 {
-    display: grid;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-#payment-form .billing-info input
+#payment-form .personal-info input
 {
     padding: 0.5%;
     font-size: 1.5em;
+    width: 20em;
+    border-radius: 25px;
+    border-style: none;
+    outline-style: none;
+    text-indent: 2%;
 }
 
-#payment-form .billing-info label
+#payment-form .personal-info label
 {
     color: #fff;
     font-size: 1.5em;
+    width: 20em;
 }
 
-#payment-form .shipping-info
+#payment-form .personal-info .personal-title 
+{
+    color: #fff;
+    font-size: 1.5em;
+    
+}
+#payment-form .personal-info .personal-title h2
+{
+    text-align: start;
+    display: flex;
+    justify-content: right;
+}
+
+#payment-form .shipping-info .shipping-boxes
 {
     display: flex;
     justify-content: space-evenly;
     grid-column: 2;
-    outline: 2px dashed blue;
+    grid-row: 1;
     align-items: center;
 }
 
-#payment-form .shipping-info .dhl-box
+#payment-form .shipping-info .shipping-boxes .dhl-box
 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    outline: 1px dashed yellow;
     max-height: 12em;
     margin-right: 0.5em;
     
 }
 
-#payment-form .shipping-info .dhl-box img
+#payment-form .shipping-info .shipping-boxes .dhl-box img
 {
     margin-bottom: 2em;
-    width: 6em;
-    color: #262626;
+    width: 10em;
+    border-radius: 25px;
 }
 
-#payment-form .shipping-info .dhl-box input
+#payment-form .shipping-info .shipping-boxes .dhl-box input
 {
     margin-bottom: 1em;
 }
 
-#payment-form .shipping-info .schenker-box
+#payment-form .shipping-info  .shipping-boxes .schenker-box
 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    outline: 1px dashed yellow;
     max-height: 12em;
     
 }
 
-#payment-form .shipping-info .schenker-box img
+#payment-form .shipping-info  .shipping-boxes .schenker-box img
 {
     margin-bottom: 2em;
-    background: #262626;
-    width: 6em;
+    border-radius: 25px;
+    width: 10em;
 }
 
-#payment-form .shipping-info .schenker-box input
+#payment-form .shipping-info .shipping-boxes .schenker-box input
 {
     margin-bottom: 1em;
 }
@@ -756,6 +776,112 @@ section
     color: #fff;
     font-size: 1.5em;
     margin-left: 2%;
+}
+
+#payment-form .shipping-info .shipping-title h2
+{
+    text-align: center;
+    font-size: 2em;
+    color: #fff;
+}
+
+#payment-form .billing-info
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#payment-form .billing-info .billing-title
+{
+    color: #fff;
+    font-size: 1.5em;
+}
+
+#payment-form .billing-info .type-of-payment
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 2px dashed hotpink;
+    width: 45em;
+}
+
+#payment-form .billing-info .paymentmethod-card
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    outline: 1px dashed yellow;
+    width: 15em;
+    height: 7em;
+}
+
+#payment-form .billing-info #payment-by-card-icon
+{
+    color: #fff;
+    height: 2.5em;
+    width: 2.5em;
+    margin-top: 10%;
+}
+
+#payment-form .billing-info .paymentmethod-card input
+{
+    margin-top: 10%;
+}
+
+#payment-form .billing-info .paymentmethod-swish
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    outline: 1px dashed yellow;
+    width: 15em;
+}
+
+#payment-form .billing-info .paymentmethod-swish img
+{
+    height: 5em;
+    width: 9em;
+    outline: 1px dashed blue;
+    margin-bottom: 5%;
+}
+
+#payment-form .billing-info input
+{
+    padding: 0.5%;
+    font-size: 1.5em;
+    width: 20em;
+    border-radius: 25px;
+    border-style: none;
+    outline-style: none;
+    text-indent: 2%;
+}
+
+#payment-form .billing-info label
+{
+    color: #fff;
+    font-size: 1.5em;
+    width: 20em;
+}
+
+#payment-form .billing-info button
+{
+    margin-top: 2%;
+    width: 8em;
+    border-radius: 25px;
+    font-size: 1.6em;
+    transition: 0.5s ease-in-out;
+    border-style: none;
+}
+
+#payment-form .billing-info button:hover
+{
+    background: #111;
+    color: #fff;
 }
 /*#endregion*/
 
