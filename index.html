@@ -260,12 +260,12 @@
                         <div class="shipping-boxes">
                             <div class="dhl-box">
                                 <img src="/images/new-dhl-logo.png">
-                                <input type="radio" id="radio1" name="shipping" value="dhl" v-model="shippingPicked">
+                                <input type="radio" id="radio1" name="shipping" value="dhl" v-on:click="setTotalCost('dhl')">
                                 <label>+49kr</label>
                             </div>
                             <div class="schenker-box">
                                 <img src="/images/db-schenker-vector-logo.png">
-                                <input type="radio" id="radio2" name="shipping" value="schenker" v-model="shippingPicked">
+                                <input type="radio" id="radio2" name="shipping" value="schenker" v-on:click="setTotalCost('schenker')">
                                 <label>+59kr</label>
                             </div>
                         </div>
@@ -297,7 +297,7 @@
                             <input type="number" id="cvc">
                         </div>
 
-                        <label v-model="totalCost">Total cost: {{totalCost}}kr</label>
+                        <label v-model="totalCost, totalCostVAT">Total cost: {{totalCost}}kr ({{totalCostVAT}}kr VAT)</label>
                         <button id="purchase-button">Purchase</button>
 
                     </div>
