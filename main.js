@@ -80,7 +80,10 @@ var app = new Vue(
             ],
             imageLink: "",
             totalPrice: "",
-            totalVAT: ""
+            totalVAT: "",
+            paymentpicked: "",
+            totalCost: "",
+            shippingPicked: ""
 
         },
         methods: {
@@ -125,6 +128,9 @@ var app = new Vue(
                 }, 0);
                 console.log("TOTALPRICE:", this.totalPrice);
                 this.totalVAT = this.totalPrice * 0.25;
+
+                this.shippingPicked == 'dhl' ? this.totalCost += this.totalPrice + 49 : this.totalCost += this.totalPrice + 59;
+                
                 await this.showStart();
 
             },

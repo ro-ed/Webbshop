@@ -804,7 +804,7 @@ section
     display: flex;
     justify-content: center;
     align-items: center;
-    outline: 2px dashed hotpink;
+   
     width: 45em;
 }
 
@@ -814,7 +814,7 @@ section
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    outline: 1px dashed yellow;
+    
     width: 15em;
     height: 7em;
 }
@@ -838,7 +838,7 @@ section
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    outline: 1px dashed yellow;
+    
     width: 15em;
 }
 
@@ -846,11 +846,19 @@ section
 {
     height: 5em;
     width: 9em;
-    outline: 1px dashed blue;
+    
     margin-bottom: 5%;
 }
 
-#payment-form .billing-info input
+#payment-form .billing-info .card-info
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#payment-form .billing-info .card-info input
 {
     padding: 0.5%;
     font-size: 1.5em;
@@ -861,11 +869,19 @@ section
     text-indent: 2%;
 }
 
-#payment-form .billing-info label
+#payment-form .billing-info .card-info label
 {
     color: #fff;
     font-size: 1.5em;
     width: 20em;
+}
+
+
+#payment-form .billing-info label
+{
+    color: #fff;
+    font-size: 1.5em;
+    margin-top: 1%;
 }
 
 #payment-form .billing-info button

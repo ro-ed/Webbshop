@@ -260,12 +260,12 @@
                         <div class="shipping-boxes">
                             <div class="dhl-box">
                                 <img src="/images/new-dhl-logo.png">
-                                <input type="radio" id="radio1" name="shipping">
+                                <input type="radio" id="radio1" name="shipping" value="dhl" v-model="shippingPicked">
                                 <label>+49kr</label>
                             </div>
                             <div class="schenker-box">
                                 <img src="/images/db-schenker-vector-logo.png">
-                                <input type="radio" id="radio2" name="shipping">
+                                <input type="radio" id="radio2" name="shipping" value="schenker" v-model="shippingPicked">
                                 <label>+59kr</label>
                             </div>
                         </div>
@@ -278,23 +278,26 @@
                             <br>
                             <h2>Billing</h2>
                         </div>
-                        <div class="type-of-payment">
+                        <div class="type-of-payment" >
                             <div class="paymentmethod-card">
                                 <ion-icon name="card-outline" id="payment-by-card-icon"></ion-icon>
-                                <input type="radio" name="paymentmethod">
+                                <input type="radio" name="paymentmethod" value="pm-card" v-model="paymentpicked">
                             </div>
                             <div class="paymentmethod-swish">
-                                 <img src="/images/swish_logo.png">
-                                 <input type="radio" name="paymentmethod">
+                                <img src="/images/swish_logo.png">
+                                <input type="radio" name="paymentmethod" value="pm-swish" v-model="paymentpicked">
                             </div>
-                           
+
                         </div>
-                        <label for="cardnumber">Cardnumber</label>
-                        <input type="number" id="cardnumber">
+                        <div class="card-info" v-if="paymentpicked === 'pm-card'">
+                            <label for="cardnumber">Cardnumber</label>
+                            <input type="number" id="cardnumber">
 
-                        <label for="cvc">CVC</label>
-                        <input type="number" id="cvc">
+                            <label for="cvc">CVC</label>
+                            <input type="number" id="cvc">
+                        </div>
 
+                        <label v-model="totalCost">Total cost: {{totalCost}}kr</label>
                         <button id="purchase-button">Purchase</button>
 
                     </div>
