@@ -68,6 +68,7 @@ var app = new Vue(
         async created() {
             await this.fetchData();
             this.testFillWithItems();
+            console.log("CREATING WEBSITE")
         },
         data: {
             typeOfPage: "",
@@ -92,7 +93,8 @@ var app = new Vue(
             emailHasText: "",
             cardnumberHasNumbers: "",
             cvcHasNumbers: "",
-            noValueArr: []
+            noValueArr: [],
+            amountOfShoes: ""
 
         },
         methods: {
@@ -113,7 +115,7 @@ var app = new Vue(
                 console.log(this.currentItemsInCartArray);
             },
             addToCart: async function (objectID) {
-                await this.showCart();
+                // await this.showCart();
 
                 let inputIDToString = objectID.toString();
 
@@ -126,10 +128,13 @@ var app = new Vue(
                             this.currentItemsInCartArray.push(produkt);
                             console.log('Produkter i arrayen:', this.currentItemsInCartArray);
                             this.imageLink = produkt.Img
-
+                            produkt.Quantity--;
+                            this.amountOfShoes = produkt.Quantity;
+                            console.log("SÅ HÄR MÅMGA SKOR FINNS DET KVAR:", produkt.Quantity)
                         }
                     })
                 });
+                
                 this.currentItemsInCartNumber = this.currentItemsInCartArray.length;
                 console.log(this.currentItemsInCartNumber)
                 this.totalPrice = this.currentItemsInCartArray.reduce(function (accumulator, item) {
@@ -138,7 +143,7 @@ var app = new Vue(
                 console.log("TOTALPRICE:", this.totalPrice);
                 this.totalVAT = this.totalPrice * 0.25;
 
-                await this.showStart();
+                // await this.showStart();
 
             },
             toggle: function () {
@@ -184,12 +189,14 @@ var app = new Vue(
                                 newH3_1.innerHTML = produkt.Price + 'kr';
                                 getImageBox_shoes.appendChild(newH3_1);
 
-                                //Sätter lager-tagg
-                                let newQuantity = document.createElement('h3')
-                                newQuantity.innerHTML = 'I lager: ' + produkt.Quantity;
-                                newQuantity.className = 'quantity';
-                                getShoesCard.appendChild(newQuantity);
+                                // //Sätter lager-tagg
+                                // let newQuantity = document.createElement('h3')
+                                // newQuantity.innerHTML = 'I lager: ' + produkt.Quantity;
+                                // newQuantity.className = 'quantity';
+                                // getShoesCard.appendChild(newQuantity);
 
+                                this.amountOfShoes = produkt.Quantity;
+                                console.log("JAG ÄR I testFillWithItems-metoden")
                                 break;
 
                             case 'd42275ce-6874-4d1d-96d3-ae94aacdf14a':
@@ -365,9 +372,9 @@ var app = new Vue(
                     this.currentItemsInCartNumber = this.currentItemsInCartArray.length;
                     this.typeOfPage = "thankyou";
                 }
-                else if(!this.noValueArr.length && (this.cvcHasNumbers == false && this.cardnumberHasNumbers == false)
-                && (document.querySelector('input[value="pm-swish"]:checked') != null) && (document.querySelector('input[name="shipping"]:checked') != null)
-                && this.currentItemsInCartNumber > 0){
+                else if (!this.noValueArr.length && (this.cvcHasNumbers == false && this.cardnumberHasNumbers == false)
+                    && (document.querySelector('input[value="pm-swish"]:checked') != null) && (document.querySelector('input[name="shipping"]:checked') != null)
+                    && this.currentItemsInCartNumber > 0) {
                     this.currentItemsInCartArray = "";
                     this.currentItemsInCartArray = "";
                     this.totalPrice = "";
