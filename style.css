@@ -910,7 +910,7 @@ input[type='radio']:checked:after {
     margin-top: 1%;
 }
 
-#payment-form .billing-info button
+#payment-form .billing-info #purchase-button
 {
     margin-top: 2%;
     width: 8em;
@@ -918,9 +918,76 @@ input[type='radio']:checked:after {
     font-size: 1.6em;
     transition: 0.5s ease-in-out;
     border-style: none;
+    background: #fff;
+    text-align: center;
 }
 
-#payment-form .billing-info button:hover
+#payment-form .billing-info #purchase-button:hover
+{
+    background: #111;
+    color: #fff;
+}
+
+#cartBlur.active
+{
+    filter: blur(10px);
+    pointer-events: none;
+    user-select: none;
+}
+
+#popup-cart
+{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 35vw;
+    border-radius: 40px;
+    padding: 50px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    background: white;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#popup-cart.active
+{
+    top: 50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+#popup-cart h2
+{
+    font-size: 2em;
+}
+
+#popup-cart a
+{
+    position: relative;
+    top: 10px;
+    display: inline-block;
+    padding: 12px 30px;
+    background: #fff;
+    border: 1px solid #111;
+    border-radius: 40px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #111;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+#popup-cart p
+{
+    font-size: 1.5em;
+}
+
+#popup-cart a:hover
 {
     background: #111;
     color: #fff;

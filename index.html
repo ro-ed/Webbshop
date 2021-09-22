@@ -209,7 +209,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="cart-page" v-if="typeOfPage === 'cart'">
+            <div class="cart-page" v-if="typeOfPage === 'cart'" id="cartBlur">
                 <h1>Shopping Cart</h1>
                 <ul id="cart-list">
                     <li v-for="(item, index) in currentItemsInCartArray">
@@ -306,10 +306,18 @@
                         </div>
 
                         <label v-model="totalCost, totalCostVAT">Total cost: {{totalCost}}kr ({{totalCostVAT}}kr VAT)</label>
-                        <button id="purchase-button">Purchase</button>
+                        <a id="purchase-button" v-on:click="purchaseItems()">Purchase</a>
 
                     </div>
                 </form>
+            </div>
+            <div class="cart-page" v-if="typeOfPage === 'thankyou'">
+                <h2>Thank you for your purchase! <br>A receipt has been sent to your email.</h2>
+            </div>
+            <div id="popup-cart">
+                <h2>Error</h2>
+                <p>Something went wrong. Check form and try again! </p>
+                <a v-on:click="toggleError()">Close</a>
             </div>
     </div>
 

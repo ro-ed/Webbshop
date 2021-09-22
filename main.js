@@ -262,7 +262,7 @@ var app = new Vue(
                 for (var ref in this.$refs) {
 
                     if (!this.$refs[ref].value) {
-                        
+
                         switch (this.$refs[ref].id) {
                             case 'firstname':
                                 this.firstnameHasText = false;
@@ -301,11 +301,10 @@ var app = new Vue(
 
                     }
 
-                    else
-                    {
+                    else {
                         switch (this.$refs[ref].id) {
                             case 'firstname':
-                                this.firstnameHasText = true;                              
+                                this.firstnameHasText = true;
                                 break;
 
                             case 'surname':
@@ -338,10 +337,21 @@ var app = new Vue(
                     }
 
                 }
-                if (!this.noValueArr.length && (this.cvcHasNumbers == true && this.cardnumberHasNumbers == true) 
-                && ((document.querySelector('input[name="paymentmethod"]:checked') && document.querySelector('input[name="shipping"]:checked')) != null))
-                {
-                    console.log("ALLA HAR VÄRDE DU KAN GÖRA PURCHASE")
+
+            },
+            toggleError: function () {
+                var blur = document.getElementById('cartBlur');
+                blur.classList.toggle('active');
+                var popup = document.getElementById('popup-cart');
+                popup.classList.toggle('active');
+            },
+            purchaseItems: function () {
+                if (!this.noValueArr.length && (this.cvcHasNumbers == true && this.cardnumberHasNumbers == true)
+                    && ((document.querySelector('input[name="paymentmethod"]:checked') && document.querySelector('input[name="shipping"]:checked')) != null)) {
+                    this.typeOfPage = "thankyou";
+                }
+                else {
+                    this.toggleError()
                 }
             }
 
