@@ -217,12 +217,12 @@
             <div class="cart-page" v-if="typeOfPage === 'cart'" id="cartBlur">
                 <h1>Shopping Cart</h1>
                 <ul id="cart-list">
-                    <li v-for="(item, index) in currentItemsInCartArray">
+                    <li v-for="item in currentItemsInCartArray">
                         <img v-bind:src="imageLink">
                         <h2>Brand: {{item.Brand}}</h2>
                         <h2>Model: {{item.Model}}</h2>
                         <h2>Price: {{item.Price}}kr</h2>
-                        <a v-on:click="deleteItemByIndex(index)">
+                        <a v-on:click="deleteItemById(item.ID)">
                             <x-icon id="x-icon"></x-icon>
                         </a>
                     </li>

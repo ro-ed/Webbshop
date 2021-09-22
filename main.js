@@ -113,6 +113,7 @@ var app = new Vue(
             showCart: async function () {
                 this.typeOfPage = "cart"
                 console.log(this.currentItemsInCartArray);
+                console.log("THE AMOUNT OF SHOES: ",this.amountOfNikeAirShoes)
             },
             addToCart: async function (objectID) {
                 // await this.showCart();
@@ -181,7 +182,7 @@ var app = new Vue(
                 let getImageBox_shoes = document.getElementById('imgBx-shoes');
                 let getImageBox_sweater = document.getElementById('imgBx-sweater');
                 let getImageBox_trouser = document.getElementById('imgBx-trouser');
-                let getShoesCard = document.getElementById('card-content-shoes');
+                
 
                 let allCategories = [globalJSONArray.tshirts, globalJSONArray.underwear, globalJSONArray.trousers, globalJSONArray.sweaters, globalJSONArray.shoes]
 
@@ -205,7 +206,19 @@ var app = new Vue(
                                 newH3_1.innerHTML = produkt.Price + 'kr';
                                 getImageBox_shoes.appendChild(newH3_1);
 
-                                this.amountOfNikeAirShoes = produkt.Quantity;
+                                if(this.amountOfNikeAirShoes === '')
+                                {
+                                    this.amountOfNikeAirShoes = produkt.Quantity;
+                                }
+                                else if(produkt.Quantity > this.amountOfNikeAirShoes)
+                                {
+                                    produkt.Quantity = this.amountOfNikeAirShoes;
+                                }
+                                if(this.amountOfNikeAirShoes === 0)
+                                {
+                                    produkt.Quantity = this.amountOfNikeAirShoes;
+                                }
+                               
                                 console.log("JAG ÄR I testFillWithItems-metoden")
                                 break;
 
@@ -252,6 +265,34 @@ var app = new Vue(
             },
             deleteItemByIndex: function (index) {
                 this.currentItemsInCartArray.splice(index, 1)
+                console.log("Items in cart:", this.currentItemsInCartArray.length)
+                this.currentItemsInCartNumber = this.currentItemsInCartArray.length;
+                this.totalPrice = this.currentItemsInCartArray.reduce(function (accumulator, item) {
+                    return accumulator + item.Price;
+                }, 0);
+                this.totalVAT = this.totalPrice * 0.25;
+                this.totalCost = this.totalPrice;
+                this.totalCostVAT = this.totalCost * 0.25;
+                
+            },
+            deleteItemById: function (id) {
+                console.log(id)
+                let i = this.currentItemsInCartArray.map(item => item.ID).indexOf(id) // find index of your object
+                // let findItem = this.currentItemsInCartArray.map(item => item.Quantity).indexOf(id)
+                // console.log("THE FOUND ITEM" ,findItem)
+
+                this.currentItemsInCartArray.map(item => {
+                    if(item.ID == id){
+                        console.log("THE QUANTITY AMOUNT BEFORE:", item.Quantity)
+                        item.Quantity++
+                        console.log("THE QUANTITY AMOUNT AFTER:", item.Quantity)
+                    }
+                    
+                })
+
+
+                console.log(i)
+                this.currentItemsInCartArray.splice(i, 1)
                 console.log("Items in cart:", this.currentItemsInCartArray.length)
                 this.currentItemsInCartNumber = this.currentItemsInCartArray.length;
                 this.totalPrice = this.currentItemsInCartArray.reduce(function (accumulator, item) {
