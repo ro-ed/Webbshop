@@ -230,6 +230,8 @@ var app = new Vue(
                     return accumulator + item.Price;
                 }, 0);
                 this.totalVAT = this.totalPrice * 0.25;
+                this.totalCost = this.totalPrice;
+                this.totalCostVAT = this.totalCost * 0.25;
             },
             setTotalCost: function (value) {
                 this.totalCost = "";
