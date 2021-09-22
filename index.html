@@ -306,13 +306,13 @@
                         </div>
 
                         <label v-model="totalCost, totalCostVAT">Total cost: {{totalCost}}kr ({{totalCostVAT}}kr VAT)</label>
-                        <a id="purchase-button" v-on:click="purchaseItems()">Purchase</a>
+                        <a href="#" id="purchase-button" v-on:click="purchaseItems()">Purchase</a>
 
                     </div>
                 </form>
             </div>
             <div class="cart-page" v-if="typeOfPage === 'thankyou'">
-                <h2>Thank you for your purchase! <br>A receipt has been sent to your email.</h2>
+                <h1 style="color: #fff;">Thank you for your purchase! <br>A receipt has been sent to your email.</h1>
             </div>
             <div id="popup-cart">
                 <h2>Error</h2>

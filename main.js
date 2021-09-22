@@ -347,7 +347,26 @@ var app = new Vue(
             },
             purchaseItems: function () {
                 if (!this.noValueArr.length && (this.cvcHasNumbers == true && this.cardnumberHasNumbers == true)
-                    && ((document.querySelector('input[name="paymentmethod"]:checked') && document.querySelector('input[name="shipping"]:checked')) != null)) {
+                    && (document.querySelector('input[value="pm-card"]:checked') != null)
+                    && this.currentItemsInCartNumber > 0) {
+                    this.currentItemsInCartArray = "";
+                    this.totalPrice = "";
+                    this.totalVAT = "";
+                    this.totalCost = "";
+                    this.totalCostVAT = "";
+                    this.currentItemsInCartNumber = this.currentItemsInCartArray.length;
+                    this.typeOfPage = "thankyou";
+                }
+                else if(!this.noValueArr.length && (this.cvcHasNumbers == false && this.cardnumberHasNumbers == false)
+                && (document.querySelector('input[value="pm-swish"]:checked') != null) && (document.querySelector('input[name="shipping"]:checked') != null)
+                && this.currentItemsInCartNumber > 0){
+                    this.currentItemsInCartArray = "";
+                    this.currentItemsInCartArray = "";
+                    this.totalPrice = "";
+                    this.totalVAT = "";
+                    this.totalCost = "";
+                    this.totalCostVAT = "";
+                    this.currentItemsInCartNumber = this.currentItemsInCartArray.length;
                     this.typeOfPage = "thankyou";
                 }
                 else {
