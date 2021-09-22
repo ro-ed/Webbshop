@@ -98,9 +98,10 @@
                                     <span></span>
                                 </div>
                                 <div class="buttons">
-                                    <a href="#" v-on:click="addToCart()">Add to cart</a>
-                                    <a v-on:click="fetchData()">AXIOS</a>
+                                    <a v-on:click="addToCart('d42275ce-6874-4d1d-96d3-ae94aacdf14a')">Add to cart</a>
+                                    <a v-on:click="toggle()">More info</a>
                                 </div>
+                                <h3 class="quantity" v-model="amountOfSmogSweaters">In stock {{amountOfSmogSweaters}}</h3>
                             </div>
                         </div>
                     </div>
@@ -125,9 +126,10 @@
                                     <span></span>
                                 </div>
                                 <div class="buttons">
-                                    <a href="#" v-on:click="addToCart()">Add to cart</a>
+                                    <a v-on:click="addToCart('3ed9dcff-99d6-4f37-b9d4-e3ace1e78324')">Add to cart</a>
                                     <a v-on:click="toggle()">More info</a>
                                 </div>
+                                <h3 class="quantity" v-model="amountOfNikeDriFit">In stock {{amountOfNikeDriFit}}</h3>
                             </div>
                         </div>
                     </div>
@@ -218,7 +220,7 @@
                 <h1>Shopping Cart</h1>
                 <ul id="cart-list">
                     <li v-for="item in currentItemsInCartArray">
-                        <img v-bind:src="imageLink">
+                        <img :src="getImage(item.Img)">
                         <h2>Brand: {{item.Brand}}</h2>
                         <h2>Model: {{item.Model}}</h2>
                         <h2>Price: {{item.Price}}kr</h2>
