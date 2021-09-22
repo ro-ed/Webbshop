@@ -83,7 +83,13 @@ var app = new Vue(
             totalVAT: "",
             paymentpicked: "",
             totalCost: "",
-            totalCostVAT: ""
+            totalCostVAT: "",
+            firstnameHasText: "",
+            surnameHasText: "",
+            addressHasText: "",
+            postcodeHasText: "",
+            phonenumberHasText: "",
+            emailHasText: "",
 
         },
         methods: {
@@ -107,7 +113,7 @@ var app = new Vue(
                 await this.showCart();
 
                 let inputIDToString = objectID.toString();
-                
+
                 let allCategories = [globalJSONArray.tshirts, globalJSONArray.underwear, globalJSONArray.trousers, globalJSONArray.sweaters, globalJSONArray.shoes]
 
                 allCategories.forEach(category => {
@@ -128,7 +134,7 @@ var app = new Vue(
                 }, 0);
                 console.log("TOTALPRICE:", this.totalPrice);
                 this.totalVAT = this.totalPrice * 0.25;
-                
+
                 await this.showStart();
 
             },
@@ -225,24 +231,97 @@ var app = new Vue(
                 }, 0);
                 this.totalVAT = this.totalPrice * 0.25;
             },
-            setTotalCost: function (value) 
-            {
+            setTotalCost: function (value) {
                 this.totalCost = "";
                 this.totalCostVAT = "";
                 console.log("MARKERAD");
-                if(value === 'dhl')
-                {
+                if (value === 'dhl') {
                     this.totalCost += this.totalPrice + 49
                     this.totalCostVAT += this.totalCost * 0.25
                 }
-                else if(value === 'schenker')
-                {
+                else if (value === 'schenker') {
                     this.totalCost += this.totalPrice + 59;
                     this.totalCostVAT += this.totalCost * 0.25
                 }
 
                 console.log(this.$refs.firstname_ref.value)
-                
+
+            },
+            setErrorMessage: function () {
+
+                let noValueArr = []
+
+
+                console.log(this.$refs);
+
+                for (var ref in this.$refs) {
+
+                    if (!this.$refs[ref].value) {
+                        
+                        switch (this.$refs[ref].id) {
+                            case 'firstname':
+                                this.firstnameHasText = false;
+                                noValueArr.push(this.$refs[ref]);
+                                break;
+                            case 'surname':
+                                this.surnameHasText = false;
+                                noValueArr.push(this.$refs[ref]);
+                                break;
+                            case 'address':
+                                this.addressHasText = false;
+                                noValueArr.push(this.$refs[ref]);
+                                break;
+                            case 'postcode':
+                                this.postcodeHasText = false;
+                                noValueArr.push(this.$refs[ref]);
+                                break;
+                            case 'phonenumber':
+                                this.phonenumberHasText = false;
+                                noValueArr.push(this.$refs[ref]);
+                                break;
+                            case 'email':
+                                this.emailHasText = false;
+                                noValueArr.push(this.$refs[ref]);
+                                break;
+
+                        }
+
+                    }
+
+                    else
+                    {
+                        switch (this.$refs[ref].id) {
+                            case 'firstname':
+                                this.firstnameHasText = true;                              
+                                break;
+
+                            case 'surname':
+                                this.surnameHasText = true;
+                                break;
+
+                            case 'address':
+                                this.addressHasText = true;
+                                break;
+
+                            case 'postcode':
+                                this.postcodeHasText = true;
+                                break;
+
+                            case 'phonenumber':
+                                this.phonenumberHasText = true;
+                                break;
+
+                            case 'email':
+                                this.emailHasText = true;
+                                break;
+
+                        }
+                    }
+
+                }
+                if (!noValueArr.length) {
+                    console.log("ALLA HAR VÄRDE DU KAN GÖRA PURCHASE")
+                }
             }
 
         }
