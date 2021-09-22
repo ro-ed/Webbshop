@@ -415,7 +415,7 @@ section
 
 .start-cards-container .card:hover .imgBx h3
 {
-    transform: translateY(-42px);
+    transform: translateY(-48px);
 }
 .start-cards-container .sweater-card .card:hover .imgBx h3
 {
@@ -469,6 +469,18 @@ section
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-right: 10px;
+}
+
+.start-cards-container .card .content .quantity
+{
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+    position: relative;
+    top: 1em;
 }
 
 .start-cards-container .card .content .size span

@@ -160,6 +160,7 @@ var app = new Vue(
                 let getImageBox_shoes = document.getElementById('imgBx-shoes');
                 let getImageBox_sweater = document.getElementById('imgBx-sweater');
                 let getImageBox_trouser = document.getElementById('imgBx-trouser');
+                let getShoesCard = document.getElementById('card-content-shoes');
 
                 let allCategories = [globalJSONArray.tshirts, globalJSONArray.underwear, globalJSONArray.trousers, globalJSONArray.sweaters, globalJSONArray.shoes]
 
@@ -182,6 +183,13 @@ var app = new Vue(
                                 let newH3_1 = document.createElement('h3');
                                 newH3_1.innerHTML = produkt.Price + 'kr';
                                 getImageBox_shoes.appendChild(newH3_1);
+
+                                //Sätter lager-tagg
+                                let newQuantity = document.createElement('h3')
+                                newQuantity.innerHTML = 'I lager: ' + produkt.Quantity;
+                                newQuantity.className = 'quantity';
+                                getShoesCard.appendChild(newQuantity);
+
                                 break;
 
                             case 'd42275ce-6874-4d1d-96d3-ae94aacdf14a':

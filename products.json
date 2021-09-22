@@ -26,7 +26,8 @@
           "Model": "Dri-Fit",
           "Price": 1299,
           "Description": "Good looking trouser",
-          "Img": "/images/dri-fit-academy-women.png"
+          "Img": "/images/dri-fit-academy-women.png",
+          "Quantity": 10
         }
       ],
       "sweaters": [
@@ -36,7 +37,8 @@
           "Model": "Gray Sweater",
           "Price": 399,
           "Description": "Good looking sweater",
-          "Img": "/images/gray-sweater.png"
+          "Img": "/images/gray-sweater.png",
+          "Quantity": 10
         }
       ],
       "shoes": [
@@ -47,7 +49,8 @@
           "Price": 1199,
           "Description": "Fast shoes",
           "Img": "/images/air-max.png",
-          "showOnFirstPage": true
+          "showOnFirstPage": true,
+          "Quantity": 10
         },
         {
           "ID": "2",
