@@ -94,7 +94,7 @@ var app = new Vue(
             cardnumberHasNumbers: "",
             cvcHasNumbers: "",
             noValueArr: [],
-            amountOfShoes: ""
+            amountOfNikeAirShoes: ""
 
         },
         methods: {
@@ -124,14 +124,23 @@ var app = new Vue(
                 allCategories.forEach(category => {
                     category.forEach(produkt => {
                         if (produkt.ID == inputIDToString) {
-                            console.log('Produkten som läggs till:', produkt);
-                            this.currentItemsInCartArray.push(produkt);
-                            console.log('Produkter i arrayen:', this.currentItemsInCartArray);
-                            this.imageLink = produkt.Img
-                            produkt.Quantity--;
-                            this.amountOfShoes = produkt.Quantity;
-                            console.log("SÅ HÄR MÅMGA SKOR FINNS DET KVAR:", produkt.Quantity)
+                            if (produkt.Quantity > 0) {
+                                console.log('Produkten som läggs till:', produkt);
+                                this.currentItemsInCartArray.push(produkt);
+                                console.log('Produkter i arrayen:', this.currentItemsInCartArray);
+                                this.imageLink = produkt.Img
+                                produkt.Quantity--;
+                                this.amountOfNikeAirShoes = produkt.Quantity;
+                                console.log("SÅ HÄR MÅMGA SKOR FINNS DET KVAR:", produkt.Quantity)
+                            }
+                            else
+                            {
+                                this.toggleOutOfStock();
+                            }
+                               
+                            
                         }
+
                     })
                 });
                 
@@ -152,6 +161,13 @@ var app = new Vue(
                 var popup = document.getElementById('popup');
                 popup.classList.toggle('active');
 
+            },
+            toggleOutOfStock: function () 
+            {
+                var blur = document.getElementById('blur');
+                blur.classList.toggle('active');
+                var popup = document.getElementById('popup-not-in-stock');
+                popup.classList.toggle('active');
             },
             fetchData: async function () {
                 await axios.get('products.json')
@@ -189,13 +205,7 @@ var app = new Vue(
                                 newH3_1.innerHTML = produkt.Price + 'kr';
                                 getImageBox_shoes.appendChild(newH3_1);
 
-                                // //Sätter lager-tagg
-                                // let newQuantity = document.createElement('h3')
-                                // newQuantity.innerHTML = 'I lager: ' + produkt.Quantity;
-                                // newQuantity.className = 'quantity';
-                                // getShoesCard.appendChild(newQuantity);
-
-                                this.amountOfShoes = produkt.Quantity;
+                                this.amountOfNikeAirShoes = produkt.Quantity;
                                 console.log("JAG ÄR I testFillWithItems-metoden")
                                 break;
 

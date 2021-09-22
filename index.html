@@ -69,11 +69,11 @@
                                 <span></span>
                             </div>
                             <div class="buttons">
-                                <a href="#" v-on:click="addToCart('8a609b4b-b002-4eee-aa0c-e4fed93d2193')">Add to
+                                <a v-on:click="addToCart('8a609b4b-b002-4eee-aa0c-e4fed93d2193')">Add to
                                     cart</a>
                                 <a v-on:click="toggle()">More info</a>
                             </div>
-                            <h3 class="quantity" v-model="amountOfShoes">In stock {{amountOfShoes}}</h3>
+                            <h3 class="quantity" v-model="amountOfNikeAirShoes">In stock {{amountOfNikeAirShoes}}</h3>
 
                         </div>
                     </div>
@@ -136,6 +136,11 @@
                     <h2>Product</h2>
                     <p>Some info</p>
                     <a v-on:click="toggle()">Close</a>
+                </div>
+                <div id="popup-not-in-stock">
+                    <h2>Out of Stock</h2>
+                    <p>Your selected product is out of stock.</p>
+                    <a v-on:click="toggleOutOfStock()">Close</a>
                 </div>
             </div>
 
