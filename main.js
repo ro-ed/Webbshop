@@ -90,6 +90,9 @@ var app = new Vue(
             postcodeHasText: "",
             phonenumberHasText: "",
             emailHasText: "",
+            cardnumberHasNumbers: "",
+            cvcHasNumbers: "",
+            noValueArr: []
 
         },
         methods: {
@@ -251,8 +254,8 @@ var app = new Vue(
             },
             setErrorMessage: function () {
 
-                let noValueArr = []
 
+                this.noValueArr = []
 
                 console.log(this.$refs);
 
@@ -263,27 +266,35 @@ var app = new Vue(
                         switch (this.$refs[ref].id) {
                             case 'firstname':
                                 this.firstnameHasText = false;
-                                noValueArr.push(this.$refs[ref]);
+                                this.noValueArr.push(this.$refs[ref]);
                                 break;
                             case 'surname':
                                 this.surnameHasText = false;
-                                noValueArr.push(this.$refs[ref]);
+                                this.noValueArr.push(this.$refs[ref]);
                                 break;
                             case 'address':
                                 this.addressHasText = false;
-                                noValueArr.push(this.$refs[ref]);
+                                this.noValueArr.push(this.$refs[ref]);
                                 break;
                             case 'postcode':
                                 this.postcodeHasText = false;
-                                noValueArr.push(this.$refs[ref]);
+                                this.noValueArr.push(this.$refs[ref]);
                                 break;
                             case 'phonenumber':
                                 this.phonenumberHasText = false;
-                                noValueArr.push(this.$refs[ref]);
+                                this.noValueArr.push(this.$refs[ref]);
                                 break;
                             case 'email':
                                 this.emailHasText = false;
-                                noValueArr.push(this.$refs[ref]);
+                                this.noValueArr.push(this.$refs[ref]);
+                                break;
+                            case 'cardnumber':
+                                this.cardnumberHasNumbers = false;
+                                this.noValueArr.push(this.$refs[ref]);
+                                break;
+                            case 'cvc':
+                                this.cvcHasNumbers = false;
+                                this.noValueArr.push(this.$refs[ref]);
                                 break;
 
                         }
@@ -316,12 +327,20 @@ var app = new Vue(
                             case 'email':
                                 this.emailHasText = true;
                                 break;
+                            case 'cardnumber':
+                                this.cardnumberHasNumbers = true;
+                                break;
+                            case 'cvc':
+                                this.cvcHasNumbers = true;
+                                break;
 
                         }
                     }
 
                 }
-                if (!noValueArr.length) {
+                if (!this.noValueArr.length && (this.cvcHasNumbers == true && this.cardnumberHasNumbers == true) 
+                && ((document.querySelector('input[name="paymentmethod"]:checked') && document.querySelector('input[name="shipping"]:checked')) != null))
+                {
                     console.log("ALLA HAR VÄRDE DU KAN GÖRA PURCHASE")
                 }
             }
