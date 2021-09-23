@@ -58,7 +58,41 @@ Vue.component('x-icon',
     })
 
 
+Vue.component('newlyAddedItem',
+    {
+        template: `<div><div class="card">
+    <div class="imgBx" id="imgBx-shoes" v-for="item in usableGlobalArray" 
+    v-if="item.ID === '8a609b4b-b002-4eee-aa0c-e4fed93d2193'">
+        <img :src="getImage(item.Img)">
+        <h2>{{item.Brand}} {{item.Model}}</h2>
+        <h3>{{item.Price}}kr</h3>
+    </div>
+    <div class="content" id="card-content-shoes">
+        <div class="size">
+            <h3>Size :</h3>
+            <span>41</span>
+            <span>42</span>
+            <span>43</span>
+            <span>44</span>
+        </div>
+        <div class="color">
+            <h3>Color :</h3>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="buttons">
+            <a v-on:click="addToCart('8a609b4b-b002-4eee-aa0c-e4fed93d2193')">Add to
+                cart</a>
+            <a v-on:click="toggle()">More info</a>
+        </div>
+        <h3 class="quantity" v-model="amountOfNikeAirShoes">In stock {{amountOfNikeAirShoes}}</h3>
 
+    </div>
+</div></div>`
+
+    })
 
 
 var app = new Vue(
@@ -69,6 +103,41 @@ var app = new Vue(
             await this.fetchData();
             this.testFillWithItems();
             console.log("CREATING WEBSITE")
+        },
+        components: {
+            newlyAddedItem: {
+                template: `<div><div class="card">
+                <div class="imgBx" id="imgBx-shoes" v-for="item in usableGlobalArray" 
+                v-if="item.ID === this.$refs.enterid_ref.value">
+                    <img :src="getImage(item.Img)">
+                    <h2>{{item.Brand}} {{item.Model}}</h2>
+                    <h3>{{item.Price}}kr</h3>
+                </div>
+                <div class="content" id="card-content-shoes">
+                    <div class="size">
+                        <h3>Size :</h3>
+                        <span>41</span>
+                        <span>42</span>
+                        <span>43</span>
+                        <span>44</span>
+                    </div>
+                    <div class="color">
+                        <h3>Color :</h3>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="buttons">
+                        <a v-on:click="addToCart(this.$refs.enterid_ref.value)">Add to
+                            cart</a>
+                        <a v-on:click="toggle()">More info</a>
+                    </div>
+                    <h3 class="quantity" v-model="amountOfNikeAirShoes">In stock {{amountOfNikeAirShoes}}</h3>
+            
+                </div>
+            </div></div>`
+            }
         },
         data: {
             typeOfPage: "",
@@ -100,7 +169,8 @@ var app = new Vue(
             amountOfNikeNBA: "",
             amountOfTuuli: "",
             getImageBox_shoes2: "",
-            usableGlobalArray: []
+            usableGlobalArray: [],
+            adminActivated: false
 
         },
         methods: {
@@ -212,7 +282,7 @@ var app = new Vue(
                     category.forEach(produkt => {
 
                         this.usableGlobalArray.push(produkt);
-
+                        console.log("THIS IS THE USABLE ARRAY IN FILL WITH ITEMS")
                         switch (produkt.ID) {
                             case '8a609b4b-b002-4eee-aa0c-e4fed93d2193':
 
@@ -468,6 +538,54 @@ var app = new Vue(
             },
             getImage: function (pic) {
                 return pic
+            },
+            toggleAdmin: function () {
+                if (this.adminActivated == false) {
+                    this.adminActivated = true;
+                }
+                else {
+                    this.adminActivated = false;
+                }
+
+            },
+            adminAddItem: function () {
+                var newItem =
+                {
+                    ID: this.$refs.enterid_ref.value,
+                    Brand: this.$refs.enterbrand_ref.value,
+                    Model: this.$refs.entermodel_ref.value,
+                    Price: this.$refs.enterprice_ref.value,
+                    Description: this.$refs.enterdesc_ref.value,
+                    Img: this.$refs.enterimg_ref.value,
+                    Quantity: this.$refs.enterquantity_ref.value
+
+                };
+
+                this.usableGlobalArray.push(newItem);
+                console.log("NEW ITEM IS IN HERE", this.usableGlobalArray);
+
+                let lastItem = this.usableGlobalArray.slice(-1)[0] //Get newly added item
+                console.log("LAST ITEM:", lastItem)
+
+                let placeToAddItem = document.getElementById('start-cards-container');
+
+                placeToAddItem.appendChild(this.'')
+
+            },
+            adminChangeItem: function () {
+                this.usableGlobalArray.forEach(item => {
+                    if (item.ID == this.$refs.enterid_ref.value) {
+                        item.ID = this.$refs.enterid_ref.value,
+                            item.Brand = this.$refs.enterbrand_ref.value,
+                            item.Model = this.$refs.entermodel_ref.value,
+                            item.Price = this.$refs.enterprice_ref.value,
+                            item.Description = this.$refs.enterdesc_ref.value,
+                            item.Img = this.$refs.enterimg_ref.value,
+                            item.Quantity = this.$refs.enterquantity_ref.value
+                    }
+                })
+
+                console.log("DEN ÄNDRADE ARRAYEN:", this.usableGlobalArray)
             }
 
         }

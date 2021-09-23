@@ -154,6 +154,22 @@
                     <p>Your selected product is out of stock.</p>
                     <a v-on:click="toggleOutOfStock()">Close</a>
                 </div>
+                <div class="admin-container">
+                    <div class="admin-button">
+                        <button v-on:click="toggleAdmin()">TOGGLE ADMIN</button>
+                    </div>
+                    <div class="admin-form" v-if="adminActivated == true">
+                        <input type="text" ref="enterid_ref" placeholder="Enter ID">
+                        <input type="text" ref="enterbrand_ref" placeholder="Enter brand">
+                        <input type="text" ref="entermodel_ref" placeholder="Enter model">
+                        <input type="text" ref="enterprice_ref" placeholder="Enter price">
+                        <input type="text" ref="enterdesc_ref" placeholder="Enter description">
+                        <input type="text" ref="enterimg_ref" placeholder="Enter image source">
+                        <input type="text" ref="enterquantity_ref" placeholder="Enter quantity">
+                        <button v-on:click="adminAddItem()">ADD ITEM</button>
+                        <button v-on:click="adminChangeItem()">CHANGE ITEM</button>
+                    </div>
+                </div>
             </div>
 
 

@@ -1061,3 +1061,42 @@ input[type='radio']:checked:after {
 }
 /*#endregion*/
 
+/*#region ADMIN*/
+
+.admin-container
+{
+    outline: 2px dashed red;
+  
+}
+
+.admin-container .admin-form input
+{
+    padding: 0.5%;
+    font-size: 1.5em;
+    width: 20em;
+    border-radius: 25px;
+    border-style: none;
+    outline-style: none;
+    text-indent: 2%;
+    margin-left: 1%;
+    margin-top: 1%;
+    /* outline: 1p solid #262626; */
+}
+
+.admin-container .admin-form button
+{
+    width: 9.5em;
+    font-size: 1.5em;
+    margin-left: 1%;
+    cursor: pointer;
+    border-style: none;
+    border-radius: 20px;
+}
+
+.admin-container .admin-form button:hover
+{
+    color: #fff;
+    background: #111;
+}
+
+/*#endregion*/
