@@ -102,7 +102,8 @@ var app = new Vue(
             showNewItem: false,
             newItemID: "",
             newItemSpot: "",
-            firstItemSpot: -1
+            firstItemSpot: -1,
+            amountOfNikeLeBron: ""
 
         },
         methods: {
@@ -197,6 +198,10 @@ var app = new Vue(
                                         break;
                                     case '3b6bfa72-c346-41c4-a758-a00a0707f426':
                                         this.amountOfTuuli = product.Quantity;
+                                        break;
+                                        
+                                    case '626a4cd9-0a70-4894-97f2-5b4c90254adc':
+                                        this.amountOfNikeLeBron = product.Quantity;
                                         break;
                                 }
 
@@ -556,9 +561,10 @@ var app = new Vue(
                 let theNumberOfNewObject = this.usableGlobalArray[this.usableGlobalArray.length - 1]
                 console.log("LAST ITEM:", lastItem)
                 
-                console.log("NEW ITEM ID", this.newItemSpot)
-
                 this.newItemID = this.$refs.enterid_ref.value;
+                console.log("NEW ITEM ID", this.newItemID)
+
+                
                 
                 if(this.firstItemSpot > -1)
                 {
