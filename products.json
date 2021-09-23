@@ -24,7 +24,7 @@
           "ID": "3ed9dcff-99d6-4f37-b9d4-e3ace1e78324",
           "Brand": "Nike",
           "Model": "Dri-Fit",
-          "Price": 1299,
+          "Price": 399,
           "Description": "Good looking trouser",
           "Img": "/images/dri-fit-academy-women.png",
           "Quantity": 10
@@ -33,7 +33,7 @@
           "ID": "c0b282d6-ba6f-4f29-8cf3-23e2bba017f8",
           "Brand": "Nike",
           "Model": "Dri Fit NBA",
-          "Price": 599,
+          "Price": 459,
           "Description": "Good looking trouser",
           "Img": "/images/nba-trouser.png",
           "Quantity": 10
@@ -42,7 +42,7 @@
           "ID": "3b6bfa72-c346-41c4-a758-a00a0707f426",
           "Brand": "Tuuli",
           "Model": "Culottes",
-          "Price": 999,
+          "Price": 299,
           "Description": "Good looking trouser",
           "Img": "/images/North-Outdoor-Tuuli.png",
           "Quantity": 10
@@ -65,7 +65,7 @@
           "ID": "8a609b4b-b002-4eee-aa0c-e4fed93d2193",
           "Brand": "Nike",
           "Model": "Air Max",
-          "Price": 1199,
+          "Price": 899,
           "Description": "Fast shoes",
           "Img": "/images/air-max.png",
           "showOnFirstPage": true,

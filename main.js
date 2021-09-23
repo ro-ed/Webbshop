@@ -134,34 +134,73 @@ var app = new Vue(
 
                 let allCategories = [globalJSONArray.tshirts, globalJSONArray.underwear, globalJSONArray.trousers, globalJSONArray.sweaters, globalJSONArray.shoes]
 
-                allCategories.forEach(category => {
-                    category.forEach(produkt => {
-                        if (produkt.ID == inputIDToString) {
-                            if (produkt.Quantity > 0) {
-                                console.log('Produkten som läggs till:', produkt);
-                                this.currentItemsInCartArray.push(produkt);
+                // allCategories.forEach(category => {
+                //     category.forEach(produkt => {
+                //         if (produkt.ID == inputIDToString) {
+                //             if (produkt.Quantity > 0) {
+                //                 console.log('Produkten som läggs till:', produkt);
+                //                 this.currentItemsInCartArray.push(produkt);
+                //                 console.log('Produkter i arrayen:', this.currentItemsInCartArray);
+
+                //                 produkt.Quantity--;
+                //                 switch (inputIDToString) {
+                //                     case '8a609b4b-b002-4eee-aa0c-e4fed93d2193':
+                //                         this.amountOfNikeAirShoes = produkt.Quantity;
+                //                         break;
+                //                     case 'd42275ce-6874-4d1d-96d3-ae94aacdf14a':
+                //                         this.amountOfSmogSweaters = produkt.Quantity;
+                //                         break;
+                //                     case '3ed9dcff-99d6-4f37-b9d4-e3ace1e78324':
+                //                         this.amountOfNikeDriFit = produkt.Quantity;
+                //                         break;
+                //                     case 'c0b282d6-ba6f-4f29-8cf3-23e2bba017f8':
+                //                         this.amountOfNikeNBA = produkt.Quantity;
+                //                         break;
+                //                     case '3b6bfa72-c346-41c4-a758-a00a0707f426':
+                //                         this.amountOfTuuli = produkt.Quantity;
+                //                         break;
+                //                 }
+
+                //                 console.log("SÅ HÄR MÅMGA AV", produkt.ID, "FINNS DET KVAR:", produkt.Quantity)
+                //             }
+                //             else {
+                //                 this.toggleOutOfStock();
+                //             }
+
+
+                //         }
+
+                //     })
+                // });
+
+                
+                    this.usableGlobalArray.forEach(product => {
+                        if (product.ID == inputIDToString) {
+                            if (product.Quantity > 0) {
+                                console.log('Produkten som läggs till:', product);
+                                this.currentItemsInCartArray.push(product);
                                 console.log('Produkter i arrayen:', this.currentItemsInCartArray);
 
-                                produkt.Quantity--;
+                                product.Quantity--;
                                 switch (inputIDToString) {
                                     case '8a609b4b-b002-4eee-aa0c-e4fed93d2193':
-                                        this.amountOfNikeAirShoes = produkt.Quantity;
+                                        this.amountOfNikeAirShoes = product.Quantity;
                                         break;
                                     case 'd42275ce-6874-4d1d-96d3-ae94aacdf14a':
-                                        this.amountOfSmogSweaters = produkt.Quantity;
+                                        this.amountOfSmogSweaters = product.Quantity;
                                         break;
                                     case '3ed9dcff-99d6-4f37-b9d4-e3ace1e78324':
-                                        this.amountOfNikeDriFit = produkt.Quantity;
+                                        this.amountOfNikeDriFit = product.Quantity;
                                         break;
                                     case 'c0b282d6-ba6f-4f29-8cf3-23e2bba017f8':
-                                        this.amountOfNikeNBA = produkt.Quantity;
+                                        this.amountOfNikeNBA = product.Quantity;
                                         break;
                                     case '3b6bfa72-c346-41c4-a758-a00a0707f426':
-                                        this.amountOfTuuli = produkt.Quantity;
+                                        this.amountOfTuuli = product.Quantity;
                                         break;
                                 }
 
-                                console.log("SÅ HÄR MÅMGA AV", produkt.ID, "FINNS DET KVAR:", produkt.Quantity)
+                                console.log("SÅ HÄR MÅMGA AV", product.ID, "FINNS DET KVAR:", product.Quantity)
                             }
                             else {
                                 this.toggleOutOfStock();
@@ -171,7 +210,7 @@ var app = new Vue(
                         }
 
                     })
-                });
+                
 
                 this.currentItemsInCartNumber = this.currentItemsInCartArray.length;
                 console.log(this.currentItemsInCartNumber)
@@ -305,6 +344,23 @@ var app = new Vue(
                         console.log("THE AMOUNT BEFORE:", item.Quantity)
                         item.Quantity++
                         console.log("THE AMOUNT AFTER:", item.Quantity)
+                        switch (id) {
+                            case '8a609b4b-b002-4eee-aa0c-e4fed93d2193':
+                                this.amountOfNikeAirShoes = item.Quantity;
+                                break;
+                            case 'd42275ce-6874-4d1d-96d3-ae94aacdf14a':
+                                this.amountOfSmogSweaters = item.Quantity;
+                                break;
+                            case '3ed9dcff-99d6-4f37-b9d4-e3ace1e78324':
+                                this.amountOfNikeDriFit = item.Quantity;
+                                break;
+                            case 'c0b282d6-ba6f-4f29-8cf3-23e2bba017f8':
+                                this.amountOfNikeNBA = item.Quantity;
+                                break;
+                            case '3b6bfa72-c346-41c4-a758-a00a0707f426':
+                                this.amountOfTuuli = item.Quantity;
+                                break;
+                        }
                     }
                 })
 
