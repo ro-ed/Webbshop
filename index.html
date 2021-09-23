@@ -31,7 +31,7 @@
                 <header-icon-search></header-icon-search>
                 <header-icon-profile></header-icon-profile>
                 <header-icon-favorites></header-icon-favorites>
-                <a v-on:click="showCart()">
+                <a href="#" v-on:click="showCart()">
                     <header-icon-cart></header-icon-cart>
                     <div class="small-circle" v-if="currentItemsInCartNumber > 0">
                         <p v-model="currentItemsInCartNumber">{{currentItemsInCartNumber}}</p>
