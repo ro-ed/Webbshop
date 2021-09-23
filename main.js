@@ -97,7 +97,9 @@ var app = new Vue(
             amountOfNikeAirShoes: "",
             amountOfSmogSweaters: "",
             amountOfNikeDriFit: "",
-            getImageBox_shoes2:"",
+            amountOfNikeNBA: "",
+            amountOfTuuli: "",
+            getImageBox_shoes2: "",
             usableGlobalArray: []
 
         },
@@ -108,7 +110,7 @@ var app = new Vue(
                 var imgBxShoes = document.getElementById('imgBx-shoes');
                 console.log("IS THERE ITEMS START?????", globalJSONArray)
                 if (imgBxShoes.innerHTML === '') {
-                     this.testFillWithItems();
+                    this.testFillWithItems();
                 }
             },
             showProduct: async function () {
@@ -116,7 +118,7 @@ var app = new Vue(
                 // var imgBxShoes = document.getElementById('imgBx-shoes');
                 // console.log("IS THERE ITEMS PRODUCT?????", globalJSONArray) 
                 //  await this.testFillWithItems();
-                
+
             },
             showCart: async function () {
                 this.typeOfPage = "cart"
@@ -139,18 +141,21 @@ var app = new Vue(
                                 console.log('Produkter i arrayen:', this.currentItemsInCartArray);
 
                                 produkt.Quantity--;
-                                switch(inputIDToString){
+                                switch (inputIDToString) {
                                     case '8a609b4b-b002-4eee-aa0c-e4fed93d2193':
                                         this.amountOfNikeAirShoes = produkt.Quantity;
-                                        this.imageLink = produkt.Img;
                                         break;
                                     case 'd42275ce-6874-4d1d-96d3-ae94aacdf14a':
-                                        this.amountOfSmogSweaters = produkt.Quantity;                                        
-                                        this.imageLink = produkt.Img;
+                                        this.amountOfSmogSweaters = produkt.Quantity;
                                         break;
                                     case '3ed9dcff-99d6-4f37-b9d4-e3ace1e78324':
-                                        this.amountOfNikeDriFit = produkt.Quantity;                           
-                                        this.imageLink = produkt.Img;
+                                        this.amountOfNikeDriFit = produkt.Quantity;
+                                        break;
+                                    case 'c0b282d6-ba6f-4f29-8cf3-23e2bba017f8':
+                                        this.amountOfNikeNBA = produkt.Quantity;
+                                        break;
+                                    case '3b6bfa72-c346-41c4-a758-a00a0707f426':
+                                        this.amountOfTuuli = produkt.Quantity;
                                         break;
                                 }
 
@@ -162,7 +167,7 @@ var app = new Vue(
 
 
                         }
-                        
+
                     })
                 });
 
@@ -199,18 +204,6 @@ var app = new Vue(
             },
             testFillWithItems: function () {
 
-                let getImageBox_shoes = document.getElementById('imgBx-shoes');
-                
-                // if(this.typeOfPage === 'product')
-                // {
-                //     this.getImageBox_shoes2 = document.getElementById('imgBx-shoes2');
-                // } 
-                
-                // let getImageBox_shoes = document.getElementsByClassName('imgBx-shoes');
-                let getImageBox_sweater = document.getElementById('imgBx-sweater');
-                let getImageBox_trouser = document.getElementById('imgBx-trouser');
-
-
                 let allCategories = [globalJSONArray.tshirts, globalJSONArray.underwear, globalJSONArray.trousers, globalJSONArray.sweaters, globalJSONArray.shoes]
 
                 console.log("ALL CATEGORIES", allCategories)
@@ -222,27 +215,6 @@ var app = new Vue(
 
                         switch (produkt.ID) {
                             case '8a609b4b-b002-4eee-aa0c-e4fed93d2193':
-                                //Sätter image-source
-                                // let newImg_1 = document.createElement('img')
-                                // newImg_1.src = produkt.Img;
-                                // getImageBox_shoes.appendChild(newImg_1);
-                                // // if(this.typeOfPage === 'product')
-                                // // {
-                                // //     console.log("WHAT DO I HAVE IN SHOES2", getImageBox_shoes2)
-                                // //     this.getImageBox_shoes2.appendChild(newImg_1);
-                                // // }
-                                
-                                // console.log("Skapar bild", newImg_1)
-                                // //Sätter H2-tagg
-                                // let newH2_1 = document.createElement('h2');
-                                // newH2_1.innerHTML = produkt.Brand + ' ' + produkt.Model;
-                                // getImageBox_shoes.appendChild(newH2_1)
-
-
-                                // //Sätter H3-tagg
-                                // let newH3_1 = document.createElement('h3');
-                                // newH3_1.innerHTML = produkt.Price + 'kr';
-                                // getImageBox_shoes.appendChild(newH3_1);
 
                                 if (this.amountOfNikeAirShoes === '') {
                                     this.amountOfNikeAirShoes = produkt.Quantity;
@@ -254,25 +226,9 @@ var app = new Vue(
                                     produkt.Quantity = this.amountOfNikeAirShoes;
                                 }
 
-                                console.log("JAG ÄR I testFillWithItems-metoden")
                                 break;
 
                             case 'd42275ce-6874-4d1d-96d3-ae94aacdf14a':
-                                //Sätter image-source
-                                // let newImg_2 = document.createElement('img')
-                                // newImg_2.src = produkt.Img;
-                                // getImageBox_sweater.appendChild(newImg_2);
-
-                                // //Sätter H2-tagg
-                                // let newH2_2 = document.createElement('h2');
-                                // newH2_2.innerHTML = produkt.Brand + ' ' + produkt.Model;
-                                // getImageBox_sweater.appendChild(newH2_2)
-
-
-                                // //Sätter H3-tagg
-                                // let newH3_2 = document.createElement('h3');
-                                // newH3_2.innerHTML = produkt.Price + 'kr';
-                                // getImageBox_sweater.appendChild(newH3_2);
 
 
                                 if (this.amountOfSmogSweaters === '') {
@@ -287,21 +243,6 @@ var app = new Vue(
                                 break;
 
                             case '3ed9dcff-99d6-4f37-b9d4-e3ace1e78324':
-                                // //Sätter image-source
-                                // let newImg_3 = document.createElement('img')
-                                // newImg_3.src = produkt.Img;
-                                // getImageBox_trouser.appendChild(newImg_3);
-
-                                // //Sätter H2-tagg
-                                // let newH2_3 = document.createElement('h2');
-                                // newH2_3.innerHTML = produkt.Brand + ' ' + produkt.Model;
-                                // getImageBox_trouser.appendChild(newH2_3)
-
-
-                                // //Sätter H3-tagg
-                                // let newH3_3 = document.createElement('h3');
-                                // newH3_3.innerHTML = produkt.Price + 'kr';
-                                // getImageBox_trouser.appendChild(newH3_3);
 
                                 if (this.amountOfNikeDriFit === '') {
                                     this.amountOfNikeDriFit = produkt.Quantity;
@@ -311,6 +252,28 @@ var app = new Vue(
                                 }
                                 if (this.amountOfNikeDriFit === 0) {
                                     produkt.Quantity = this.amountOfNikeDriFit;
+                                }
+                                break;
+                            case 'c0b282d6-ba6f-4f29-8cf3-23e2bba017f8':
+                                if (this.amountOfNikeNBA === '') {
+                                    this.amountOfNikeNBA = produkt.Quantity;
+                                }
+                                if (produkt.Quantity > this.amountOfNikeNBA) {
+                                    this.amountOfNikeNBA = produkt.Quantity;
+                                }
+                                if (this.amountOfNikeNBA === 0) {
+                                    produkt.Quantity = this.amountOfNikeNBA;
+                                }
+                                break;
+                            case '3b6bfa72-c346-41c4-a758-a00a0707f426':
+                                if (this.amountOfTuuli === '') {
+                                    this.amountOfTuuli = produkt.Quantity;
+                                }
+                                if (produkt.Quantity > this.amountOfTuuli) {
+                                    this.amountOfTuuli = produkt.Quantity;
+                                }
+                                if (this.amountOfTuuli === 0) {
+                                    produkt.Quantity = this.amountOfTuuli;
                                 }
                                 break;
                         }
@@ -335,18 +298,26 @@ var app = new Vue(
                 // let findItem = this.currentItemsInCartArray.map(item => item.Quantity).indexOf(id)
                 // console.log("THE FOUND ITEM" ,findItem)
 
-                let allCategories = [globalJSONArray.tshirts, globalJSONArray.underwear, globalJSONArray.trousers, globalJSONArray.sweaters, globalJSONArray.shoes]
-
-                allCategories.forEach(category => {
-                    category.forEach(produkt => {
-                        if (produkt.ID == id) {
-                            console.log("THE AMOUNT BEFORE:", produkt.Quantity)
-                            produkt.Quantity++
-                            console.log("THE AMOUNT AFTER:", produkt.Quantity)
-                        }
-                    })
-
+                this.usableGlobalArray.forEach(item => {
+                    if (item.ID == id) {
+                        console.log("THE AMOUNT BEFORE:", item.Quantity)
+                        item.Quantity++
+                        console.log("THE AMOUNT AFTER:", item.Quantity)
+                    }
                 })
+
+                // let allCategories = [globalJSONArray.tshirts, globalJSONArray.underwear, globalJSONArray.trousers, globalJSONArray.sweaters, globalJSONArray.shoes]
+
+                // allCategories.forEach(category => {
+                //     category.forEach(produkt => {
+                //         if (produkt.ID == id) {
+                //             console.log("THE AMOUNT BEFORE:", produkt.Quantity)
+                //             produkt.Quantity++
+                //             console.log("THE AMOUNT AFTER:", produkt.Quantity)
+                //         }
+                //     })
+
+                // })
                 console.log(i)
                 this.currentItemsInCartArray.splice(i, 1)
                 console.log("Items in cart:", this.currentItemsInCartArray.length)
@@ -495,8 +466,7 @@ var app = new Vue(
                     this.toggleError()
                 }
             },
-            getImage: function (pic)
-            {
+            getImage: function (pic) {
                 return pic
             }
 

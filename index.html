@@ -50,8 +50,11 @@
                 <start-usp id="start-usp"></start-usp>
                 <div class="start-cards-container" id="blur">
                     <div class="card">
-                        <div class="imgBx" id="imgBx-shoes">
-
+                        <div class="imgBx" id="imgBx-shoes" v-for="item in usableGlobalArray" 
+                        v-if="item.ID === '8a609b4b-b002-4eee-aa0c-e4fed93d2193'">
+                            <img :src="getImage(item.Img)">
+                            <h2>{{item.Brand}} {{item.Model}}</h2>
+                            <h3>{{item.Price}}kr</h3>
                         </div>
                         <div class="content" id="card-content-shoes">
                             <div class="size">
@@ -79,8 +82,11 @@
                     </div>
                     <div class="sweater-card">
                         <div class="card">
-                            <div class="imgBx" id="imgBx-sweater">
-
+                            <div class="imgBx" id="imgBx-sweater" v-for="item in usableGlobalArray" 
+                            v-if="item.ID === 'd42275ce-6874-4d1d-96d3-ae94aacdf14a'">
+                                <img :src="getImage(item.Img)">              
+                                <h2>{{item.Brand}} {{item.Model}}</h2>
+                                <h3>{{item.Price}}kr</h3>
                             </div>
                             <div class="content">
                                 <div class="size">
@@ -108,8 +114,11 @@
                     </div>
                     <div class="trouser-card">
                         <div class="card">
-                            <div class="imgBx" id="imgBx-trouser">
-
+                            <div class="imgBx" id="imgBx-trouser" v-for="item in usableGlobalArray" 
+                            v-if="item.ID === '3ed9dcff-99d6-4f37-b9d4-e3ace1e78324'">
+                                <img :src="getImage(item.Img)"></img>                             
+                                <h2>{{item.Brand}} {{item.Model}}</h2>
+                                <h3>{{item.Price}}kr</h3>
                             </div>
                             <div class="content">
                                 <div class="size">
@@ -174,9 +183,11 @@
                     <div class="start-cards-container" v-if="trousersChecked == true">
                         <div class="trouser-card">
                             <div class="card">
-                                <div class="imgBx" id="imgBx-trouser">
-
-
+                                <div class="imgBx" id="imgBx-trouser" v-for="item in usableGlobalArray" 
+                                v-if="item.ID === '3b6bfa72-c346-41c4-a758-a00a0707f426'">
+                                    <img :src="getImage(item.Img)">
+                                    <h2>{{item.Brand}} {{item.Model}}</h2>
+                                    <h3>{{item.Price}}kr</h3>
                                 </div>
                                 <div class="content">
                                     <div class="size">
@@ -194,19 +205,22 @@
                                         <span></span>
                                     </div>
                                     <div class="buttons">
-                                        <a v-on:click="addToCart('3ed9dcff-99d6-4f37-b9d4-e3ace1e78324')">Add to
+                                        <a v-on:click="addToCart('3b6bfa72-c346-41c4-a758-a00a0707f426')">Add to
                                             cart</a>
                                         <a v-on:click="toggle()">More info</a>
                                     </div>
-                                    <h3 class="quantity" v-model="amountOfNikeDriFit">In stock {{amountOfNikeDriFit}}
+                                    <h3 class="quantity" v-model="amountOfTuuli">In stock {{amountOfTuuli}}
                                     </h3>
                                 </div>
                             </div>
                         </div>
                         <div class="trouser-card">
                             <div class="card">
-                                <div class="imgBx" id="imgBx-trouser">
-
+                                <div class="imgBx" id="imgBx-trouser" v-for="item in usableGlobalArray" 
+                                v-if="item.ID === 'c0b282d6-ba6f-4f29-8cf3-23e2bba017f8'">
+                                    <img :src="getImage(item.Img)">
+                                    <h2>{{item.Brand}} {{item.Model}}</h2>
+                                    <h3>{{item.Price}}kr</h3>
                                 </div>
                                 <div class="content">
                                     <div class="size">
@@ -224,22 +238,22 @@
                                         <span></span>
                                     </div>
                                     <div class="buttons">
-                                        <a v-on:click="addToCart('3ed9dcff-99d6-4f37-b9d4-e3ace1e78324')">Add to
+                                        <a v-on:click="addToCart('c0b282d6-ba6f-4f29-8cf3-23e2bba017f8')">Add to
                                             cart</a>
                                         <a v-on:click="toggle()">More info</a>
                                     </div>
-                                    <h3 class="quantity" v-model="amountOfNikeDriFit">In stock {{amountOfNikeDriFit}}
+                                    <h3 class="quantity" v-model="amountOfNikeNBA">In stock {{amountOfNikeNBA}}
                                     </h3>
                                 </div>
                             </div>
                         </div>
                         <div class="trouser-card">
                             <div class="card">
-                                <div class="imgBx" id="imgBx-trouser" v-for="item in usableGlobalArray">
-                                    <img v-if="item.ID === '3ed9dcff-99d6-4f37-b9d4-e3ace1e78324'"
-                                        :src="getImage(item.Img)">
-                                    <h2 v-if="item.ID === '3ed9dcff-99d6-4f37-b9d4-e3ace1e78324'">{{item.Brand}} {{item.Model}}</h2>
-                                    <h3 v-if="item.ID === '3ed9dcff-99d6-4f37-b9d4-e3ace1e78324'">{{item.Price}}kr</h3>
+                                <div class="imgBx" id="imgBx-trouser" v-for="item in usableGlobalArray" 
+                                v-if="item.ID === '3ed9dcff-99d6-4f37-b9d4-e3ace1e78324'">
+                                    <img :src="getImage(item.Img)">
+                                    <h2>{{item.Brand}} {{item.Model}}</h2>
+                                    <h3>{{item.Price}}kr</h3>
                                 </div>
                                 <div class="content">
                                     <div class="size">
