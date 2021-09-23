@@ -27,14 +27,20 @@ section
 #website-title
 {
     display: flex;
+    padding: 0.5%;
 }
 
 #header-content
 {
     display: flex;
     justify-content: space-between;
-    margin: 1%;
-    height: 2.5em;
+    /* margin: 1%; */
+    height: 3em;
+    position: sticky;
+    background: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 20;
 }
 
 #header-icons
@@ -686,13 +692,15 @@ section
     display: flex;
     position: relative;
     justify-content: center;
-    bottom: 2em;
+    bottom: 0.5em;
     color: #fff;
     font-size: 3em;
 }
 
 .cart-page ul
 {
+    margin-left: 20em;
+    margin-right: 20em;
     width: 80vw;
     background: white;
     list-style: none;
@@ -706,7 +714,7 @@ section
     align-items: center;
     justify-content: space-evenly;
     outline: 1px solid #262626;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     
 }
 
@@ -733,8 +741,9 @@ section
 
 #payment-form 
 {
-    
-    max-width: 50em;
+    margin-left: 20em;
+    margin-right: 20em;
+    max-width: 80vw;
     padding: 1%;
     border: 1px solid #fff;
     margin-top: 2%;
@@ -771,7 +780,7 @@ section
 {
     color: #fff;
     font-size: 1.5em;
-    
+    margin-top: 1%;
 }
 #payment-form .personal-info .personal-title h2
 {
@@ -1059,6 +1068,15 @@ input[type='radio']:checked:after {
     background: #111;
     color: #fff;
 }
+
+.wrapper
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+    
+}
 /*#endregion*/
 
 /*#region ADMIN*/
@@ -1099,4 +1117,20 @@ input[type='radio']:checked:after {
     background: #111;
 }
 
+.start-cards-container #theNewItem
+{
+    height: 100%;
+    width: 100%;
+}
+
+#footer
+{
+    color: #fff;
+    background: #262626;
+    text-align: center;
+    font-size: 1.2em;
+    
+    
+   
+}
 /*#endregion*/

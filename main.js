@@ -58,43 +58,6 @@ Vue.component('x-icon',
     })
 
 
-Vue.component('newlyAddedItem',
-    {
-        template: `<div><div class="card">
-    <div class="imgBx" id="imgBx-shoes" v-for="item in usableGlobalArray" 
-    v-if="item.ID === '8a609b4b-b002-4eee-aa0c-e4fed93d2193'">
-        <img :src="getImage(item.Img)">
-        <h2>{{item.Brand}} {{item.Model}}</h2>
-        <h3>{{item.Price}}kr</h3>
-    </div>
-    <div class="content" id="card-content-shoes">
-        <div class="size">
-            <h3>Size :</h3>
-            <span>41</span>
-            <span>42</span>
-            <span>43</span>
-            <span>44</span>
-        </div>
-        <div class="color">
-            <h3>Color :</h3>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="buttons">
-            <a v-on:click="addToCart('8a609b4b-b002-4eee-aa0c-e4fed93d2193')">Add to
-                cart</a>
-            <a v-on:click="toggle()">More info</a>
-        </div>
-        <h3 class="quantity" v-model="amountOfNikeAirShoes">In stock {{amountOfNikeAirShoes}}</h3>
-
-    </div>
-</div></div>`
-
-    })
-
-
 var app = new Vue(
     {
 
@@ -103,41 +66,6 @@ var app = new Vue(
             await this.fetchData();
             this.testFillWithItems();
             console.log("CREATING WEBSITE")
-        },
-        components: {
-            newlyAddedItem: {
-                template: `<div><div class="card">
-                <div class="imgBx" id="imgBx-shoes" v-for="item in usableGlobalArray" 
-                v-if="item.ID === this.$refs.enterid_ref.value">
-                    <img :src="getImage(item.Img)">
-                    <h2>{{item.Brand}} {{item.Model}}</h2>
-                    <h3>{{item.Price}}kr</h3>
-                </div>
-                <div class="content" id="card-content-shoes">
-                    <div class="size">
-                        <h3>Size :</h3>
-                        <span>41</span>
-                        <span>42</span>
-                        <span>43</span>
-                        <span>44</span>
-                    </div>
-                    <div class="color">
-                        <h3>Color :</h3>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="buttons">
-                        <a v-on:click="addToCart(this.$refs.enterid_ref.value)">Add to
-                            cart</a>
-                        <a v-on:click="toggle()">More info</a>
-                    </div>
-                    <h3 class="quantity" v-model="amountOfNikeAirShoes">In stock {{amountOfNikeAirShoes}}</h3>
-            
-                </div>
-            </div></div>`
-            }
         },
         data: {
             typeOfPage: "",
@@ -170,7 +98,11 @@ var app = new Vue(
             amountOfTuuli: "",
             getImageBox_shoes2: "",
             usableGlobalArray: [],
-            adminActivated: false
+            adminActivated: false,
+            showNewItem: false,
+            newItemID: "",
+            newItemSpot: "",
+            firstItemSpot: -1
 
         },
         methods: {
@@ -565,17 +497,30 @@ var app = new Vue(
                 console.log("NEW ITEM IS IN HERE", this.usableGlobalArray);
 
                 let lastItem = this.usableGlobalArray.slice(-1)[0] //Get newly added item
+                let theNumberOfNewObject = this.usableGlobalArray[this.usableGlobalArray.length - 1]
                 console.log("LAST ITEM:", lastItem)
+                
+                console.log("NEW ITEM ID", this.newItemSpot)
 
-                let placeToAddItem = document.getElementById('start-cards-container');
+                this.newItemID = this.$refs.enterid_ref.value;
+                
+                if(this.firstItemSpot > -1)
+                {
+                    this.newItemSpot = theNumberOfNewObject;
+                }
 
-                placeToAddItem.appendChild(this.'')
+                this.firstItemSpot = theNumberOfNewObject;
 
+                
+                
+                this.showNewItem = true;
+               
             },
             adminChangeItem: function () {
                 this.usableGlobalArray.forEach(item => {
                     if (item.ID == this.$refs.enterid_ref.value) {
-                        item.ID = this.$refs.enterid_ref.value,
+
+                            item.ID = this.$refs.enterid_ref.value,
                             item.Brand = this.$refs.enterbrand_ref.value,
                             item.Model = this.$refs.entermodel_ref.value,
                             item.Price = this.$refs.enterprice_ref.value,
@@ -585,9 +530,46 @@ var app = new Vue(
                     }
                 })
 
+
                 console.log("DEN ÄNDRADE ARRAYEN:", this.usableGlobalArray)
             }
 
         }
 
     })
+
+//     Vue.component('newlyAddedItem',
+//     {
+//         template: `<div><div class="card">
+//     <div class="imgBx" id="imgBx-shoes" v-for="item in app.this.usableGlobalArray" 
+//     v-if="item.ID === 1">
+//         <img :src="getImage(item.Img)">
+//         <h2>{{item.Brand}} {{item.Model}}</h2>
+//         <h3>{{item.Price}}kr</h3>
+//     </div>
+//     <div class="content" id="card-content-shoes">
+//         <div class="size">
+//             <h3>Size :</h3>
+//             <span>41</span>
+//             <span>42</span>
+//             <span>43</span>
+//             <span>44</span>
+//         </div>
+//         <div class="color">
+//             <h3>Color :</h3>
+//             <span></span>
+//             <span></span>
+//             <span></span>
+//             <span></span>
+//         </div>
+//         <div class="buttons">
+//             <a v-on:click="addToCart(app.this.$refs.enterid_ref.value)">Add to
+//                 cart</a>
+//             <a v-on:click="toggle()">More info</a>
+//         </div>
+//         <h3 class="quantity" v-model="amountOfNikeAirShoes">In stock {{amountOfNikeAirShoes}}</h3>
+
+//     </div>
+// </div></div>`
+
+//     })

@@ -143,6 +143,37 @@
                             </div>
                         </div>
                     </div>
+                    <div class="trouser-card" v-if="showNewItem == true" v-for="item in usableGlobalArray">
+                        <div class="card" v-if="item.ID === newItemID && firstItemSpot !== newItemSpot">
+                            <div class="imgBx" id="imgBx-trouser">
+                                <img :src="getImage(item.Img)"></img>                             
+                                <h2>{{item.Brand}} {{item.Model}}</h2>
+                                <h3>{{item.Price}}kr</h3>
+                            </div>
+                            <div class="content">
+                                <div class="size">
+                                    <h3>Size :</h3>
+                                    <span>S</span>
+                                    <span>M</span>
+                                    <span>L</span>
+                                    <span>XL</span>
+                                </div>
+                                <div class="color">
+                                    <h3>Color :</h3>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="buttons">
+                                    <a v-on:click="addToCart('1')">Add to cart</a>
+                                    <a v-on:click="toggle()">More info</a>
+                                </div>
+                                <h3 class="quantity" v-model="amountOfNikeDriFit">In stock {{amountOfNikeDriFit}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
                 <div id="popup">
                     <h2>Product</h2>
@@ -154,6 +185,7 @@
                     <p>Your selected product is out of stock.</p>
                     <a v-on:click="toggleOutOfStock()">Close</a>
                 </div>
+                
                 <div class="admin-container">
                     <div class="admin-button">
                         <button v-on:click="toggleAdmin()">TOGGLE ADMIN</button>
@@ -344,7 +376,9 @@
                     </li>
                 </ul>
                 <form action="" id="payment-form">
+                    <div class="wrapper">
 
+                   
                     <div class="personal-info">
                         <div class="personal-title">
                             <h2>Personal</h2>
@@ -432,7 +466,8 @@
                             VAT)</label>
                         <a href="#" id="purchase-button" v-on:click="purchaseItems()">Purchase</a>
 
-                    </div>
+                    </div> 
+                </div>
                 </form>
             </div>
             <div class="cart-page" v-if="typeOfPage === 'thankyou'">
@@ -446,7 +481,7 @@
     </div>
 
     </section>
-
+    <footer id="footer">Made by Robin Edin September 2021</footer>
     <script src="main.js"></script>
 </body>
 
