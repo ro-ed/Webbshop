@@ -458,7 +458,9 @@ section
     justify-content: center;
     align-items: center;
     padding: 8px 20px;
+    
 }
+
 
 .start-cards-container .card .content .size,
 .start-cards-container .card .content .color
@@ -469,6 +471,9 @@ section
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-right: 10px;
+    position: relative;
+    top: 1em;
+    
 }
 
 .start-cards-container .card .content .quantity

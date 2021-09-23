@@ -109,9 +109,6 @@ var app = new Vue(
                 if (imgBxShoes.innerHTML === '') {
                     await this.testFillWithItems();
                 }
-
-
-
             },
             showProduct: function () {
                 this.typeOfPage = "product"
