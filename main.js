@@ -103,6 +103,10 @@ var app = new Vue(
             newItemID: "",
             newItemSpot: "",
             firstItemSpot: -1,
+            amountOfBlueSweater: "",
+            amountOfBlackSweater: "",
+            amountOfNikeNFL: "",
+            amountOfNikeAirZoom: "",
             amountOfNikeLeBron: ""
 
         },
@@ -174,48 +178,59 @@ var app = new Vue(
                 //     })
                 // });
 
-                
-                    this.usableGlobalArray.forEach(product => {
-                        if (product.ID == inputIDToString) {
-                            if (product.Quantity > 0) {
-                                console.log('Produkten som läggs till:', product);
-                                this.currentItemsInCartArray.push(product);
-                                console.log('Produkter i arrayen:', this.currentItemsInCartArray);
 
-                                product.Quantity--;
-                                switch (inputIDToString) {
-                                    case '8a609b4b-b002-4eee-aa0c-e4fed93d2193':
-                                        this.amountOfNikeAirShoes = product.Quantity;
-                                        break;
-                                    case 'd42275ce-6874-4d1d-96d3-ae94aacdf14a':
-                                        this.amountOfSmogSweaters = product.Quantity;
-                                        break;
-                                    case '3ed9dcff-99d6-4f37-b9d4-e3ace1e78324':
-                                        this.amountOfNikeDriFit = product.Quantity;
-                                        break;
-                                    case 'c0b282d6-ba6f-4f29-8cf3-23e2bba017f8':
-                                        this.amountOfNikeNBA = product.Quantity;
-                                        break;
-                                    case '3b6bfa72-c346-41c4-a758-a00a0707f426':
-                                        this.amountOfTuuli = product.Quantity;
-                                        break;
-                                        
-                                    case '626a4cd9-0a70-4894-97f2-5b4c90254adc':
-                                        this.amountOfNikeLeBron = product.Quantity;
-                                        break;
-                                }
+                this.usableGlobalArray.forEach(product => {
+                    if (product.ID == inputIDToString) {
+                        if (product.Quantity > 0) {
+                            console.log('Produkten som läggs till:', product);
+                            this.currentItemsInCartArray.push(product);
+                            console.log('Produkter i arrayen:', this.currentItemsInCartArray);
 
-                                console.log("SÅ HÄR MÅMGA AV", product.ID, "FINNS DET KVAR:", product.Quantity)
+                            product.Quantity--;
+                            switch (inputIDToString) {
+                                case '8a609b4b-b002-4eee-aa0c-e4fed93d2193':
+                                    this.amountOfNikeAirShoes = product.Quantity;
+                                    break;
+                                case 'd42275ce-6874-4d1d-96d3-ae94aacdf14a':
+                                    this.amountOfSmogSweaters = product.Quantity;
+                                    break;
+                                case '3ed9dcff-99d6-4f37-b9d4-e3ace1e78324':
+                                    this.amountOfNikeDriFit = product.Quantity;
+                                    break;
+                                case 'c0b282d6-ba6f-4f29-8cf3-23e2bba017f8':
+                                    this.amountOfNikeNBA = product.Quantity;
+                                    break;
+                                case '3b6bfa72-c346-41c4-a758-a00a0707f426':
+                                    this.amountOfTuuli = product.Quantity;
+                                    break;
+                                case '2125dbc9-451d-4616-8ca8-3ed9bf5f86d8':
+                                    this.amountOfBlueSweater = product.Quantity;
+                                    break;
+                                case 'dc4be2f3-8c21-4392-90fa-579c03be64ad':
+                                    this.amountOfBlackSweater = product.Quantity;
+                                    break;
+                                case '76656dd0-bcd1-4c23-ae5a-1887e738e29e':
+                                    this.amountOfNikeNFL = product.Quantity;
+                                    break;
+                                case '4a1b729f-0bae-489f-a131-f6f10f0eb9d9':
+                                    this.amountOfNikeAirZoom = product.Quantity;
+                                    break;
+                                case '626a4cd9-0a70-4894-97f2-5b4c90254adc':
+                                    this.amountOfNikeLeBron = product.Quantity;
+                                    break;
                             }
-                            else {
-                                this.toggleOutOfStock();
-                            }
 
-
+                            console.log("SÅ HÄR MÅMGA AV", product.ID, "FINNS DET KVAR:", product.Quantity)
+                        }
+                        else {
+                            this.toggleOutOfStock();
                         }
 
-                    })
-                
+
+                    }
+
+                })
+
 
                 this.currentItemsInCartNumber = this.currentItemsInCartArray.length;
                 console.log(this.currentItemsInCartNumber)
@@ -322,6 +337,62 @@ var app = new Vue(
                                     produkt.Quantity = this.amountOfTuuli;
                                 }
                                 break;
+
+                            case '2125dbc9-451d-4616-8ca8-3ed9bf5f86d8':
+                                if (this.amountOfBlueSweater === '') {
+                                    this.amountOfBlueSweater = produkt.Quantity;
+                                }
+                                if (produkt.Quantity > this.amountOfBlueSweater) {
+                                    this.amountOfBlueSweater = produkt.Quantity;
+                                }
+                                if (this.amountOfBlueSweater === 0) {
+                                    produkt.Quantity = this.amountOfBlueSweater;
+                                }
+                                break;
+                            case 'dc4be2f3-8c21-4392-90fa-579c03be64ad':
+                                if (this.amountOfBlackSweater === '') {
+                                    this.amountOfBlackSweater = produkt.Quantity;
+                                }
+                                if (produkt.Quantity > this.amountOfBlackSweater) {
+                                    this.amountOfBlackSweater = produkt.Quantity;
+                                }
+                                if (this.amountOfBlackSweater === 0) {
+                                    produkt.Quantity = this.amountOfBlackSweater;
+                                }
+                                break;
+                            case '76656dd0-bcd1-4c23-ae5a-1887e738e29e':
+                                if (this.amountOfNikeNFL === '') {
+                                    this.amountOfNikeNFL = produkt.Quantity;
+                                }
+                                if (produkt.Quantity > this.amountOfNikeNFL) {
+                                    this.amountOfNikeNFL = produkt.Quantity;
+                                }
+                                if (this.amountOfNikeNFL === 0) {
+                                    produkt.Quantity = this.amountOfNikeNFL;
+                                }
+                                break;
+                            case '4a1b729f-0bae-489f-a131-f6f10f0eb9d9':
+                                if (this.amountOfNikeAirZoom === '') {
+                                    this.amountOfNikeAirZoom = produkt.Quantity;
+                                }
+                                if (produkt.Quantity > this.amountOfNikeAirZoom) {
+                                    this.amountOfNikeAirZoom = produkt.Quantity;
+                                }
+                                if (this.amountOfNikeAirZoom === 0) {
+                                    produkt.Quantity = this.amountOfNikeAirZoom;
+                                }
+                                break;
+                            case '626a4cd9-0a70-4894-97f2-5b4c90254adc':
+                                if (this.amountOfNikeLeBron === '') {
+                                    this.amountOfNikeLeBron = produkt.Quantity;
+                                }
+                                if (produkt.Quantity > this.amountOfNikeLeBron) {
+                                    this.amountOfNikeLeBron = produkt.Quantity;
+                                }
+                                if (this.amountOfNikeLeBron === 0) {
+                                    produkt.Quantity = this.amountOfNikeLeBron;
+                                }
+                                break;
                         }
                     })
                 });
@@ -364,6 +435,21 @@ var app = new Vue(
                                 break;
                             case '3b6bfa72-c346-41c4-a758-a00a0707f426':
                                 this.amountOfTuuli = item.Quantity;
+                                break;
+                            case '2125dbc9-451d-4616-8ca8-3ed9bf5f86d8':
+                                this.amountOfBlueSweater = item.Quantity;
+                                break;
+                            case 'dc4be2f3-8c21-4392-90fa-579c03be64ad':
+                                this.amountOfBlackSweater = item.Quantity;
+                                break;
+                            case '76656dd0-bcd1-4c23-ae5a-1887e738e29e':
+                                this.amountOfNikeNFL = item.Quantity;
+                                break;
+                            case '4a1b729f-0bae-489f-a131-f6f10f0eb9d9':
+                                this.amountOfNikeAirZoom = item.Quantity;
+                                break;
+                            case '626a4cd9-0a70-4894-97f2-5b4c90254adc':
+                                this.amountOfNikeLeBron = item.Quantity;
                                 break;
                         }
                     }
@@ -560,29 +646,28 @@ var app = new Vue(
                 let lastItem = this.usableGlobalArray.slice(-1)[0] //Get newly added item
                 let theNumberOfNewObject = this.usableGlobalArray[this.usableGlobalArray.length - 1]
                 console.log("LAST ITEM:", lastItem)
-                
+
                 this.newItemID = this.$refs.enterid_ref.value;
                 console.log("NEW ITEM ID", this.newItemID)
 
-                
-                
-                if(this.firstItemSpot > -1)
-                {
+
+
+                if (this.firstItemSpot > -1) {
                     this.newItemSpot = theNumberOfNewObject;
                 }
 
                 this.firstItemSpot = theNumberOfNewObject;
 
-                
-                
+
+
                 this.showNewItem = true;
-               
+
             },
             adminChangeItem: function () {
                 this.usableGlobalArray.forEach(item => {
                     if (item.ID == this.$refs.enterid_ref.value) {
 
-                            item.ID = this.$refs.enterid_ref.value,
+                        item.ID = this.$refs.enterid_ref.value,
                             item.Brand = this.$refs.enterbrand_ref.value,
                             item.Model = this.$refs.entermodel_ref.value,
                             item.Price = this.$refs.enterprice_ref.value,
