@@ -1100,11 +1100,7 @@ input[type='radio']:checked:after {
 
 /*#region ADMIN*/
 
-.admin-container
-{
-    outline: 2px dashed red;
-  
-}
+
 
 .admin-container .admin-form input
 {
