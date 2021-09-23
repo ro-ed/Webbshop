@@ -633,6 +633,15 @@ section
     background: #111;
     color: #fff;
 }
+#popup h2
+{
+    font-size: 2em;
+}
+
+#popup p
+{
+    font-size: 1.5em;
+}
 
 #popup-not-in-stock
 {
@@ -681,6 +690,16 @@ section
     background: #111;
     color: #fff;
 }
+#popup-not-in-stock h2
+{
+    font-size: 2em;
+}
+
+#popup-not-in-stock p
+{
+    font-size: 1.5em;
+}
+
 /*#endregion*/
 
 
