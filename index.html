@@ -49,7 +49,7 @@
 
                 <start-usp id="start-usp"></start-usp>
                 <div class="start-cards-container" id="blur">
-                    <div class="card" >
+                    <div class="card">
                         <div class="imgBx" id="imgBx-shoes">
 
                         </div>
@@ -101,7 +101,8 @@
                                     <a v-on:click="addToCart('d42275ce-6874-4d1d-96d3-ae94aacdf14a')">Add to cart</a>
                                     <a v-on:click="toggle()">More info</a>
                                 </div>
-                                <h3 class="quantity" v-model="amountOfSmogSweaters">In stock {{amountOfSmogSweaters}}</h3>
+                                <h3 class="quantity" v-model="amountOfSmogSweaters">In stock {{amountOfSmogSweaters}}
+                                </h3>
                             </div>
                         </div>
                     </div>
@@ -170,22 +171,102 @@
                     </div>
 
 
-                    <ul class="product-list" v-if="trousersChecked == true">
-                        <li class="product-item">
-
-                            <img src="/images/black-costume-trousers.jpg">
-                        </li>
-                        <li class="product-item">
-
-                            <img src="/images/gray-costume-trousers.jpg">
-                        </li>
-                        <li class="product-item">
-
-                            <img src="/images/stripes.jpg">
-                        </li>
+                    <div class="start-cards-container" v-if="trousersChecked == true">
+                        <div class="trouser-card">
+                            <div class="card">
+                                <div class="imgBx" id="imgBx-trouser">
 
 
-                    </ul>
+                                </div>
+                                <div class="content">
+                                    <div class="size">
+                                        <h3>Size :</h3>
+                                        <span>S</span>
+                                        <span>M</span>
+                                        <span>L</span>
+                                        <span>XL</span>
+                                    </div>
+                                    <div class="color">
+                                        <h3>Color :</h3>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <div class="buttons">
+                                        <a v-on:click="addToCart('3ed9dcff-99d6-4f37-b9d4-e3ace1e78324')">Add to
+                                            cart</a>
+                                        <a v-on:click="toggle()">More info</a>
+                                    </div>
+                                    <h3 class="quantity" v-model="amountOfNikeDriFit">In stock {{amountOfNikeDriFit}}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trouser-card">
+                            <div class="card">
+                                <div class="imgBx" id="imgBx-trouser">
+
+                                </div>
+                                <div class="content">
+                                    <div class="size">
+                                        <h3>Size :</h3>
+                                        <span>S</span>
+                                        <span>M</span>
+                                        <span>L</span>
+                                        <span>XL</span>
+                                    </div>
+                                    <div class="color">
+                                        <h3>Color :</h3>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <div class="buttons">
+                                        <a v-on:click="addToCart('3ed9dcff-99d6-4f37-b9d4-e3ace1e78324')">Add to
+                                            cart</a>
+                                        <a v-on:click="toggle()">More info</a>
+                                    </div>
+                                    <h3 class="quantity" v-model="amountOfNikeDriFit">In stock {{amountOfNikeDriFit}}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trouser-card">
+                            <div class="card">
+                                <div class="imgBx" id="imgBx-trouser" v-for="item in usableGlobalArray">
+                                    <img v-if="item.ID === '3ed9dcff-99d6-4f37-b9d4-e3ace1e78324'"
+                                        :src="getImage(item.Img)">
+                                    <h2 v-if="item.ID === '3ed9dcff-99d6-4f37-b9d4-e3ace1e78324'">{{item.Brand}} {{item.Model}}</h2>
+                                    <h3 v-if="item.ID === '3ed9dcff-99d6-4f37-b9d4-e3ace1e78324'">{{item.Price}}kr</h3>
+                                </div>
+                                <div class="content">
+                                    <div class="size">
+                                        <h3>Size :</h3>
+                                        <span>S</span>
+                                        <span>M</span>
+                                        <span>L</span>
+                                        <span>XL</span>
+                                    </div>
+                                    <div class="color">
+                                        <h3>Color :</h3>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <div class="buttons">
+                                        <a v-on:click="addToCart('3ed9dcff-99d6-4f37-b9d4-e3ace1e78324')">Add to
+                                            cart</a>
+                                        <a v-on:click="toggle()">More info</a>
+                                    </div>
+                                    <h3 class="quantity" v-model="amountOfNikeDriFit">In stock {{amountOfNikeDriFit}}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <ul class="product-list" v-if="sweatersChecked == true">
                         <li class="product-item">
 
@@ -241,8 +322,9 @@
 
                         <label for="firstname">First name</label>
                         <input type="text" id="firstname" ref="firstname_ref" v-on:change="setErrorMessage()">
-                        <label v-if="!firstnameHasText" style="color: red;">First name is empty or in wrong format.</label>
-                        
+                        <label v-if="!firstnameHasText" style="color: red;">First name is empty or in wrong
+                            format.</label>
+
                         <label for="surname">Surname</label>
                         <input type="text" id="surname" ref="surname_ref" v-on:change="setErrorMessage()">
                         <label v-if="!surnameHasText" style="color: red;">Surname is empty or in wrong format.</label>
@@ -257,7 +339,8 @@
 
                         <label for="phonenumber">Phone number</label>
                         <input type="number" id="phonenumber" ref="phonenumber_ref" v-on:change="setErrorMessage()">
-                        <label v-if="!phonenumberHasText" style="color: red;">Phone number is empty or in wrong format.</label>
+                        <label v-if="!phonenumberHasText" style="color: red;">Phone number is empty or in wrong
+                            format.</label>
 
                         <label for="email">Email</label>
                         <input type="email" id="email" ref="email_ref" v-on:change="setErrorMessage()">
@@ -273,12 +356,14 @@
                         <div class="shipping-boxes">
                             <div class="dhl-box">
                                 <img src="/images/new-dhl-logo.png">
-                                <input type="radio" id="radio1" name="shipping" value="dhl" v-on:click="setTotalCost('dhl')">
+                                <input type="radio" id="radio1" name="shipping" value="dhl"
+                                    v-on:click="setTotalCost('dhl')">
                                 <label>+49kr</label>
                             </div>
                             <div class="schenker-box">
                                 <img src="/images/db-schenker-vector-logo.png">
-                                <input type="radio" id="radio2" name="shipping" value="schenker" v-on:click="setTotalCost('schenker')">
+                                <input type="radio" id="radio2" name="shipping" value="schenker"
+                                    v-on:click="setTotalCost('schenker')">
                                 <label>+59kr</label>
                             </div>
                         </div>
@@ -291,7 +376,7 @@
                             <br>
                             <h2>Billing</h2>
                         </div>
-                        <div class="type-of-payment" >
+                        <div class="type-of-payment">
                             <div class="paymentmethod-card">
                                 <ion-icon name="card-outline" id="payment-by-card-icon"></ion-icon>
                                 <input type="radio" name="paymentmethod" value="pm-card" v-model="paymentpicked">
@@ -305,14 +390,16 @@
                         <div class="card-info" v-if="paymentpicked === 'pm-card'">
                             <label for="cardnumber">Card number</label>
                             <input type="number" id="cardnumber" ref="cardnumber_ref" v-on:change="setErrorMessage()">
-                            <label v-if="!cardnumberHasNumbers" style="color: red;">Card number is empty or in wrong format.</label>
+                            <label v-if="!cardnumberHasNumbers" style="color: red;">Card number is empty or in wrong
+                                format.</label>
 
                             <label for="cvc">CVC</label>
                             <input type="number" id="cvc" ref="cvc_ref" v-on:change="setErrorMessage()">
                             <label v-if="!cvcHasNumbers" style="color: red;">CVC is empty or in wrong format.</label>
                         </div>
 
-                        <label v-model="totalCost, totalCostVAT">Total cost: {{totalCost}}kr ({{totalCostVAT}}kr VAT)</label>
+                        <label v-model="totalCost, totalCostVAT">Total cost: {{totalCost}}kr ({{totalCostVAT}}kr
+                            VAT)</label>
                         <a href="#" id="purchase-button" v-on:click="purchaseItems()">Purchase</a>
 
                     </div>
