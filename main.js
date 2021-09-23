@@ -107,7 +107,9 @@ var app = new Vue(
             amountOfBlackSweater: "",
             amountOfNikeNFL: "",
             amountOfNikeAirZoom: "",
-            amountOfNikeLeBron: ""
+            amountOfNikeLeBron: "",
+            infoProduct:"",
+            infoDescription: ""
 
         },
         methods: {
@@ -243,7 +245,15 @@ var app = new Vue(
                 // await this.showStart();
 
             },
-            toggle: function () {
+            toggle: function (id) {
+                this.usableGlobalArray.forEach(item =>{
+                    if(item.ID === id)
+                    {
+                        this.infoProduct = item.Brand + ' ' + item.Model;
+                        this.infoDescription = item.Description;
+                    }
+                })
+                console.log("ID I GET IN TOGGLE:", id)
                 var blur = document.getElementById('blur');
                 blur.classList.toggle('active');
                 var popup = document.getElementById('popup');
