@@ -1,6 +1,24 @@
 {
   "categories": [
     {
+      "tshirts": [
+        {
+          "ID": "1",
+          "Name": "T-Shirt",
+          "Price": 299,
+          "Description": "Our plain white t-shirt is made from 100% organically grown cotton produced from our Stockholm terrarium. This loose fit t-shirt feels like heaven to wear, and its message is simple but clear. Accept and enjoy the present.",
+          "Img": "imgsrc.jpg"
+        }
+      ],
+      "underwear": [
+        {
+          "ID": "2",
+          "Name": "Underwear",
+          "Price": 59,
+          "Description": "Comfy mens underwear",
+          "Img": "imgsrc.jpg"
+        }
+      ],
       "trousers": [
         {
           "ID": "3ed9dcff-99d6-4f37-b9d4-e3ace1e78324",
