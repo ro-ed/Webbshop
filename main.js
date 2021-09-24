@@ -185,6 +185,7 @@ var app = new Vue(
                     if (product.ID == inputIDToString) {
                         if (product.Quantity > 0) {
                             console.log('Produkten som läggs till:', product);
+                            console.log("ITEMS IN CART ARRAY", this.currentItemsInCartArray)
                             this.currentItemsInCartArray.push(product);
                             console.log('Produkter i arrayen:', this.currentItemsInCartArray);
 
