@@ -267,7 +267,7 @@ var app = new Vue(
                 popup.classList.toggle('active');
             },
             fetchData: async function () {
-                await axios.get('products.json')
+                await axios.get('Webbshop/products.json')
                     .then(response => {
                         let allData = response.data.categories[0];
                         globalJSONArray = allData;
