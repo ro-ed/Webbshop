@@ -45,7 +45,7 @@ Vue.component('start-usp',
             + '<li><h1 style="color: #D27D2D">COMFORTABLE.</h1></li>'
             + '<li><h1 style="color: #E1AD01">AFFORDABLE.</h1></li>'
             + '<li><h1 style="color: white">We are SCABLE.</h1></li></ul></div>'
-            + '<img src="/images/background-unsplash.jpg"></img>'
+            + '<img src="/Webbshop/images/background-unsplash.jpg"></img>'
             + '</div>'
     })
 
@@ -267,7 +267,7 @@ var app = new Vue(
                 popup.classList.toggle('active');
             },
             fetchData: async function () {
-                await axios.get('Webbshop/products.json')
+                await axios.get('/Webbshop/products.json')
                     .then(response => {
                         let allData = response.data.categories[0];
                         globalJSONArray = allData;
