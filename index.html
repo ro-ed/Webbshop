@@ -32,7 +32,7 @@
                 <header-icon-profile></header-icon-profile>
                 <header-icon-favorites></header-icon-favorites>
                 <a href="#" v-on:click="showCart()">
-                    <header-icon-cart></header-icon-cart>
+                    <header-icon-cart id="header-icon-cart"></header-icon-cart>
                     <div class="small-circle" v-if="currentItemsInCartNumber > 0">
                         <p v-model="currentItemsInCartNumber">{{currentItemsInCartNumber}}</p>
                     </div>

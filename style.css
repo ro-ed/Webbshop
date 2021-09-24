@@ -53,11 +53,20 @@ section
 {
     margin: 10px;
 }
+#header-icons a
+{
+    text-decoration: none;
+}
 
 #header-tabs
 {
     display: flex;
     justify-content: center;
+}
+
+#header-icon-cart
+{
+    color: #262626;
 }
 
 #header-tabs a::after {
